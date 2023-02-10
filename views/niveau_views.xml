@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="amicales_niveau_action" model="ir.actions.act_window">
+    <field name="name">niveau</field>
+    <field name="res_model">amicales.niveau</field>
+    <field name="help" type="html">
+        	<p class="o_view_nocontent_smiling_face">
+            	Creer niveau
+        	</p>
+    	</field>
+</record>
+<record id="niveau_form_view" model="ir.ui.view">
+    <field name="name">amicales.niveau.form</field>
+    <field name="model">amicales.niveau</field>
+    <field name="arch" type="xml">
+    <form>
+        <sheet>
+           <group>
+             <group>
+                <field name="niveau"/>
+                <field name="departement_id"></field>
+            </group>
+           </group>
+        </sheet>
+        </form>
+      </field>
+</record>
+
+<record id="niveau_list_view" model="ir.ui.view">
+      <field name="name">amicales.niveau.list</field>
+      <field name="model">amicales.niveau</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="niveau"/>
+          <field name="departement_id"></field>
+          <field name="promotion_ids"></field>
+        </tree>
+      </field>
+    </record>
+<menuitem
+    id="menu_amicales_niveau"
+    name="niveau"
+    action="amicales_niveau_action"
+    parent="menu_amicales_root"
+    sequence="1"/>
+</odoo>

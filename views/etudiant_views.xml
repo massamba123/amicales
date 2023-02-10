@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="amicales_etudiant_action" model="ir.actions.act_window">
+    <field name="name">Etudiant</field>
+    <field name="res_model">amicales.etudiant</field>
+    <field name="help" type="html">
+        	<p class="o_view_nocontent_smiling_face">
+            	Creer etudiant
+        	</p>
+    	</field>
+</record>
+
+
+    <record id="etudiant_form_view" model="ir.ui.view">
+      <field name="name">amicales.etudiant.form</field>
+      <field name="model">amicales.etudiant</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <field name="prenom"/>
+                <field name="nom"></field>
+                <field name="age"></field>
+              </group>
+              <group>
+                
+                <field name="telephone"></field>
+                <field name="adresse"></field>
+              </group>
+              <group>
+                <field name="departement_id"></field>
+                <field name="niveau_id"></field>
+              </group>
+              <group>
+                <field name="promotion_id"></field>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+<record id="etudiant_list_view" model="ir.ui.view">
+      <field name="name">amicales.etudiant.list</field>
+      <field name="model">amicales.etudiant</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="prenom"/>
+          <field name="nom"></field>
+          <field name="age"></field>
+          <field name="telephone"></field>
+          <field name="adresse"></field>
+          <field name="departement_id"></field>
+          <field name="niveau_id"></field>
+          <field name="promotion_id"></field>
+        </tree>
+      </field>
+    </record>
+<menuitem
+    id="menu_amicales_etudiant"
+    name="etudiant"
+    action="amicales_etudiant_action"
+    parent="menu_amicales_root"
+    sequence="1"/>
+</odoo>

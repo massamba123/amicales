@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="amicales_promotion_action" model="ir.actions.act_window">
+    <field name="name">Promotion</field>
+    <field name="res_model">amicales.promotion</field>
+    <field name="help" type="html">
+        	<p class="o_view_nocontent_smiling_face">
+            	Creer promotion
+        	</p>
+    	</field>
+</record>
+
+<record id="promotion_form_view" model="ir.ui.view">
+    <field name="name">amicales.promotion.form</field>
+    <field name="model">amicales.promotion</field>
+    <field name="arch" type="xml">
+    <form>
+        <sheet>
+           <group>
+             <group>
+                <field name="promotion"/>
+                <field name="datePromo"></field>
+            </group>
+            <group>
+                <field name="description"/>
+                <field name="niveau_id"></field>
+            </group>
+           </group>
+        </sheet>
+        </form>
+      </field>
+</record>
+
+<record id="promotion_list_view" model="ir.ui.view">
+      <field name="name">amicales.promotion.list</field>
+      <field name="model">amicales.promotion</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="promotion"/>
+          <field name="datePromo"></field>
+          <field name="description"></field>
+          <field name="niveau_id"></field>
+          <field name="etudiant_ids"></field>
+        </tree>
+      </field>
+    </record>
+<menuitem
+    id="menu_amicales_promotion"
+    name="promotion"
+    action="amicales_promotion_action"
+    parent="menu_amicales_root"
+    sequence="1"/>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="amicales_departement_action" model="ir.actions.act_window">
+    <field name="name">Departement</field>
+    <field name="res_model">amicales.departement</field>
+    <field name="help" type="html">
+        	<p class="o_view_nocontent_smiling_face">
+            	Creer departement
+        	</p>
+    	</field>
+</record>
+
+ <record id="departement_form_view" model="ir.ui.view">
+      <field name="name">amicales.departement.form</field>
+      <field name="model">amicales.departement</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <field name="nomDepartement"/>
+                <field name="faculte_id"></field>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+<record id="departement_list_view" model="ir.ui.view">
+      <field name="name">amicales.departement.list</field>
+      <field name="model">amicales.departement</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nomDepartement"/>
+          <field name="faculte_id"></field>
+          <field name="niveau_ids"></field>
+        </tree>
+      </field>
+    </record>
+<menuitem
+    id="menu_amicales_departement"
+    name="departement"
+    action="amicales_departement_action"
+    parent="menu_amicales_root"
+    sequence="1"/>
+</odoo>
