@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="amicales_membre_action" model="ir.actions.act_window">
+        <field name="name">Membre</field>
+        <field name="res_model">amicales.membre</field>
+        <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Creer Membre
+                </p>
+            </field>
+    </record>
+
+
+    <record id="membre_form_view" model="ir.ui.view">
+        <field name="name">amicales.membre.form</field>
+        <field name="model">amicales.membre</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <group>
+                <group>
+                    <field name="prenom"/>
+                    <field name="nom"></field>
+                </group>
+                <group>
+                    
+                    <field name="telephone"></field>
+                    <field name="adresse"></field>
+                </group>
+                <group>
+                    <field name="age"></field>
+                    <field name="departement_id"></field>
+                
+                </group>
+                <group>
+                    <field name="niveau_id"></field>
+                    <field name="promotion_id"></field>
+                    <field name="commission_id"></field>
+                </group>
+                <group>
+                    <field name="matricule"></field>
+                    <field name="amicale_id"></field>
+                    <field name="role"></field>
+                </group>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="membre_list_view" model="ir.ui.view">
+      <field name="name">amicales.membre.list</field>
+      <field name="model">amicales.membre</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="prenom"/>
+          <field name="nom"></field>
+          <field name="age"></field>
+          <field name="telephone"></field>
+          <field name="adresse"></field>
+          <field name="departement_id"></field>
+          <field name="niveau_id"></field>
+          <field name="promotion_id"></field>
+          <field name="role"></field>
+          <field name="matricule"></field>
+          <field name="amicale_id"></field>
+          <field name="commission_id"></field>
+        </tree>
+      </field>
+    </record>
+    <menuitem
+        id="menu_amicales_membre"
+        name="membre"
+        action="amicales_membre_action"
+        parent="menu_amicales_root"
+        sequence="1"/>
+
+</odoo>

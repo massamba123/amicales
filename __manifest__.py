@@ -16,7 +16,10 @@
         'views/departement_views.xml',
         'views/niveau_views.xml',
         'views/promotion_views.xml',
-        'views/etudiant_views.xml'
+        'views/etudiant_views.xml',
+        'views/membre_views.xml',
+        'views/commission_views.xml',
+        'views/amicale_views.xml'
     ],
     'demo': [],
     'installable': True,

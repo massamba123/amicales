@@ -4,3 +4,6 @@ from . import departement
 from . import niveau
 from . import promotion
 from . import etudiant
+from . import membre
+from . import commission
+from . import amicale

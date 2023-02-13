@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="amicales_amicale_action" model="ir.actions.act_window">
+    <field name="name">Amicale</field>
+    <field name="res_model">amicales.amicale</field>
+    <field name="help" type="html">
+        	<p class="o_view_nocontent_smiling_face">
+            	Creer Amicale
+        	</p>
+    	</field>
+</record>
+
+ <record id="amicale_form_view" model="ir.ui.view">
+      <field name="name">amicales.amicale.form</field>
+      <field name="model">amicales.amicale</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <field name="nomAmicale"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+<record id="amicale_list_view" model="ir.ui.view">
+      <field name="name">amicales.amicale.list</field>
+      <field name="model">amicales.amicale</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nomAmicale"/>
+          <field name="membre_ids"></field>
+          <field name="commision_ids"></field>
+        </tree>
+      </field>
+    </record>
+<menuitem
+    id="menu_amicales_amicale"
+    name="amicale"
+    action="amicales_amicale_action"
+    parent="menu_amicales_root"
+    sequence="1"/>
+</odoo>
