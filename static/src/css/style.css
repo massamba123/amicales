@@ -4,3 +4,12 @@
                     padding: 100px;
 
         }
+.logo{
+    border-left: 1px solid #ccc;
+    weight: 50px;
+    height:50px;
+
+}
+header{
+background-color: #008B8B;
+}
