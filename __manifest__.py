@@ -19,7 +19,9 @@
         'views/etudiant_views.xml',
         'views/membre_views.xml',
         'views/commission_views.xml',
-        'views/amicale_views.xml'
+        'views/amicale_views.xml',
+        'templates/index.xml',
+
     ],
     'demo': [],
     'installable': True,
@@ -27,4 +29,5 @@
     'auto_install': False,
     'qweb': [],
     'license': 'LGPL-3',
+    'images':['/static/images/'],
 }

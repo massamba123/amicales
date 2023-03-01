@@ -5,6 +5,11 @@
     <field name="name">Promotion</field>
     <field name="res_model">amicales.promotion</field>
     <field name="help" type="html">
+         <data>
+            <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="amicales\static\src\css\style.css"/>
+            </xpath>
+            </data>
         	<p class="o_view_nocontent_smiling_face">
             	Creer promotion
         	</p>
@@ -15,18 +20,26 @@
     <field name="name">amicales.promotion.form</field>
     <field name="model">amicales.promotion</field>
     <field name="arch" type="xml">
+         <data>
+            <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="amicales\static\src\css\style.css"/>
+            </xpath>
+            </data>
     <form>
         <sheet>
+              <div class="my-custom-class">
+
+
            <group>
              <group>
                 <field name="promotion"/>
-                <field name="datePromo"></field>
-            </group>
-            <group>
+                <field name="datePromo"/>
+
                 <field name="description"/>
-                <field name="niveau_id"></field>
+                <field name="niveau_id"/>
             </group>
            </group>
+             </div>
         </sheet>
         </form>
       </field>

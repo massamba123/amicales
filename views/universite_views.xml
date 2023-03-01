@@ -5,6 +5,12 @@
     <field name="name">Universite</field>
     <field name="res_model">amicales.universite</field>
     <field name="help" type="html">
+         <data>
+            <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="amicales\static\src\css\style.css"/>
+            </xpath>
+            </data>
+
         	<p class="o_view_nocontent_smiling_face">
             	Creer Universite
         	</p>
@@ -16,16 +22,23 @@
       <field name="name">amicales.universite.form</field>
       <field name="model">amicales.universite</field>
       <field name="arch" type="xml">
+        <data>
+            <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="amicales\static\src\css\style.css"/>
+            </xpath>
+            </data>
         <form>
           <sheet>
+               <div class="my-custom-class">
+
             <group>
-              <group>
+              <group >
                 <field name="nomUniversite"/>
-              </group>
-              <group>
+
                 <field name="adresse"/>
               </group>
             </group>
+               </div>
           </sheet>
         </form>
       </field>

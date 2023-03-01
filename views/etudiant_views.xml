@@ -18,25 +18,26 @@
       <field name="arch" type="xml">
         <form>
           <sheet>
+               <div class="my-custom-class">
+
             <group>
               <group>
                 <field name="prenom"/>
-                <field name="nom"></field>
-                <field name="age"></field>
+                <field name="nom"/>
+                <field name="age"/>
+
+                <field name="telephone"/>
+
               </group>
               <group>
-                
-                <field name="telephone"></field>
-                <field name="adresse"></field>
-              </group>
-              <group>
-                <field name="departement_id"></field>
-                <field name="niveau_id"></field>
-              </group>
-              <group>
-                <field name="promotion_id"></field>
+                  <field name="adresse"/>
+                  <field name="departement_id"/>
+                  <field name="niveau_id"/>
+
+                  <field name="promotion_id"/>
               </group>
             </group>
+               </div>
           </sheet>
         </form>
       </field>
