@@ -39,5 +39,5 @@
     'auto_install': False,
     'qweb': [],
     'license': 'LGPL-3',
-    'images':['/static/images/'],
+    'images':['/static/src/images/'],
 }
