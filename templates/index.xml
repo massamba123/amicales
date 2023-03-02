@@ -41,7 +41,7 @@
                 <h3 style="inline:center;  color: Silver;" >
                     ******************
                     <br/>
-                    Toujours <br/>au service <br/>des etudiants reseortissant de diofior.
+                    Toujours <br/>au service <br/>des etudiants ressortissant des sous regions.
                 La commission sociale est toujours la pour vous soutenir dans tous vos besoins.<br/>
                     ******************
                 </h3>
@@ -66,7 +66,18 @@
         </div>
 </div>
         <footer class="footer">
-            <p>amicales des etudiants</p>
+
+             <div
+
+                     class="text-center"
+
+                     >
+                 <p>amicales des etudiants</p>
+                  © 2023 Copyright:
+                  <a class="text-white" href="https://mdbootstrap.com/"
+                     >MDBootstrap.com</a
+                    >
+    </div>
         </footer>
     </template>
 </odoo>
