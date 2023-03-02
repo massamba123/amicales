@@ -1,0 +1,10 @@
+<odoo>
+    <template id="amicales.programme">
+         <t t-call="amicales.header"/>
+
+        <p>Les programmes  de l'amical</p>
+
+         <t t-call="amicales.footer"/>
+
+    </template>
+</odoo>

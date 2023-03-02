@@ -7,7 +7,7 @@
     <field name="help" type="html">
          <data>
             <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/css" href="amicales\static\src\css\style.css"/>
+            <link rel="stylesheet" type="text/css" href="amicales/static/src/css/style.css"/>
             </xpath>
             </data>
         	<p class="o_view_nocontent_smiling_face">
@@ -22,7 +22,7 @@
       <field name="arch" type="xml">
            <data>
             <xpath expr="." position="inside">
-            <link rel="stylesheet" type="text/css" href="amicales\static\src\css\style.css"/>
+            <link rel="stylesheet" type="text/css" href="amicales/static/src/css/style.css"/>
             </xpath>
             </data>
         <form>

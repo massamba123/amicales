@@ -1,0 +1,10 @@
+<odoo>
+    <template id="amicales.amicale">
+         <t t-call="amicales.header"/>
+
+        <p>Organigramme de l'amicale</p>
+
+         <t t-call="amicales.footer"/>
+
+    </template>
+</odoo>

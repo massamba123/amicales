@@ -21,6 +21,16 @@
         'views/commission_views.xml',
         'views/amicale_views.xml',
         'templates/index.xml',
+        'templates/amicale.xml',
+        'templates/a_propos.xml',
+        'templates/fairedon.xml',
+        'templates/membre.xml',
+        'templates/programme.xml',
+        'templates/header.xml',
+        'templates/footer.xml',
+
+
+
 
     ],
     'demo': [],

@@ -1,0 +1,10 @@
+<odoo>
+    <template id="amicales.fairedon">
+         <t t-call="amicales.header"/>
+
+        <p>Faire un don pour l'amicale</p>
+
+         <t t-call="amicales.footer"/>
+
+    </template>
+</odoo>

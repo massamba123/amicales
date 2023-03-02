@@ -1,0 +1,10 @@
+<odoo>
+    <template id="amicales.a_propos">
+        <t t-call="amicales.header"/>
+
+        <p> A propos de l'amicale</p>
+
+        <t t-call="amicales.footer"/>
+
+    </template>
+</odoo>

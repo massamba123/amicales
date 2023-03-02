@@ -1,0 +1,12 @@
+<odoo>
+    <template id="amicales.footer">
+         <footer class="footer">
+
+             <div class="text-center">
+                 <p>amicales des etudiants</p>
+                 © 2023 Copyright:
+                 <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+             </div>
+         </footer>
+    </template>
+</odoo>

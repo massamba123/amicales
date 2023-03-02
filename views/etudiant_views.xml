@@ -5,6 +5,11 @@
     <field name="name">Etudiant</field>
     <field name="res_model">amicales.etudiant</field>
     <field name="help" type="html">
+         <data>
+            <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="amicales/static/src/css/style.css"/>
+            </xpath>
+            </data>
         	<p class="o_view_nocontent_smiling_face">
             	Creer etudiant
         	</p>
@@ -16,6 +21,11 @@
       <field name="name">amicales.etudiant.form</field>
       <field name="model">amicales.etudiant</field>
       <field name="arch" type="xml">
+           <data>
+            <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="amicales/static/src/css/style.css"/>
+            </xpath>
+            </data>
         <form>
           <sheet>
                <div class="my-custom-class">
@@ -46,16 +56,17 @@
 <record id="etudiant_list_view" model="ir.ui.view">
       <field name="name">amicales.etudiant.list</field>
       <field name="model">amicales.etudiant</field>
+
       <field name="arch" type="xml">
         <tree>
           <field name="prenom"/>
-          <field name="nom"></field>
-          <field name="age"></field>
-          <field name="telephone"></field>
-          <field name="adresse"></field>
-          <field name="departement_id"></field>
-          <field name="niveau_id"></field>
-          <field name="promotion_id"></field>
+          <field name="nom"/>
+          <field name="age"/>
+          <field name="telephone"/>
+          <field name="adresse"/>
+          <field name="departement_id"/>
+          <field name="niveau_id"/>
+          <field name="promotion_id"/>
         </tree>
       </field>
     </record>
