@@ -1,10 +1,39 @@
 <odoo>
     <template id="amicales.membre">
+        
          <t t-call="amicales.header"/>
 
-        <p>Les membres de l'amicale</p>
+        <div class="panel panel-default">
+     <div class="o_list_view_top_buttons">
+      <button class="btn btn-primary o_list_button_add" type="button" t-on-click="addRecord()">Ajouter</button>
+    </div>
+     <div class="panel-heading">Devenir membre</div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Matricule</th>
+          <th>Role</th>
+          <th>Commission_id</th>
+          <th>Amicale_id</th>
 
-         <t t-call="amicales.footer"/>
+        </tr>
+      </thead>
+      <tbody>
+        <t t-foreach="records" t-as="record">
+          <tr>
+            <td><a t-attf-href="#id={{record.id}}&amp;model=mon_module.employee">{{record.name}}</a></td>
+            <td>{{record.matricule}}</td>
+            <td>{{record.role}}</td>
+            <td>{{record.commission_id}}</td>
+              <td>{{record.amicale_id}}</td>
+
+          </tr>
+        </t>
+      </tbody>
+    </table>
+        </div>
+
+          <t t-call="amicales.footer"/>
 
     </template>
 </odoo>

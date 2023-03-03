@@ -21,16 +21,16 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img class="second-slide" t-att-src="'/amicales/static/src/images/sociale.jpg' " alt="Second slide"/>
+            <img class="second-slide" t-att-src="'/amicales/static/src/images/sociale1.jpg' " alt="Second slide"/>
             <div class="container">
               <div class="carousel-caption">
-                <h1>La Commission Sociale</h1>
-                <h3>Solidarité, nouriture, logement, soins madicaux, aide financière, tout un nombre de services pour vous aider à réussir vos études avec l'esprit  tranquil.</h3>
+
+                <p>Solidarité, nouriture, logement, soins madicaux, aide financière, tout un nombre de services pour vous aider à réussir vos études avec l'esprit  tranquil.</p>
                </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="third-slide" t-att-src="'/amicales/static/src/images/sport3.jpg' " alt="Third slide"/>
+            <img class="third-slide" t-att-src="'/amicales/static/src/images/sport6.jpg' " alt="Third slide"/>
             <div class="container">
               <div class="carousel-caption text-right">
                 <h1>Commission Sportive.</h1>

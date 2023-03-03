@@ -1,10 +1,62 @@
+
 <odoo>
-    <template id="amicales.amicale">
-         <t t-call="amicales.header"/>
+    <template id="amicales.amicale" name="Organigramme">
+        <t t-call="amicales.header"/>
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.orgchart/2.1.1/css/jquery.orgchart.min.css"/>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/jquery.orgchart/2.1.1/js/jquery.orgchart.min.js"></script>
 
-        <p>Organigramme de l'amicale</p>
+                <script type="text/javascript" src="amicales/static/src/js/script.js" />
 
-         <t t-call="amicales.footer"/>
+
+            </xpath>
+
+<body>
+              <div style="inline:center; margin-left:300px;">
+
+        <div id="council_test">
+            <div class="Oneguy" id="council_president">
+                <div class="Oneguy_presentation">
+                  <h3>Président</h3>
+                </div>
+            </div>
+
+            <div class="Oneguy" id="council_vice-president">
+                <div class="Oneguy_presentation">
+                  <h3>vice-Président</h3>
+                </div>
+            </div>
+
+            <div class="Oneguy" id="council_treasurer">
+            <div class="Oneguy_presentation">
+              <h3>Trésorier</h3>
+            </div>
+            </div>
+
+            <div class="Oneguy" id="council_vice-treasurer">
+                    <div class="Oneguy_presentation">
+                      <h3>vice-Trésorier</h3>
+                    </div>
+            </div>
+
+            <div class="Oneguy" id="council_secretary">
+                <div class="Oneguy_presentation">
+                  <h3>Secrétaire</h3>
+                </div>
+            </div>
+
+                <div class="Oneguy" id="council_vice-secretary">
+                    <div class="Oneguy_presentation">
+                      <h3>vice-Secrétaire</h3>
+                    </div>
+                </div>
+                </div>
+              </div>
+          </body>
+
+
+          <t t-call="amicales.footer"/>
 
     </template>
 </odoo>

@@ -19,6 +19,7 @@
         'views/etudiant_views.xml',
         'views/membre_views.xml',
         'views/commission_views.xml',
+        'views/membre_template_form.xml',
         'views/amicale_views.xml',
         'templates/index.xml',
         'templates/amicale.xml',

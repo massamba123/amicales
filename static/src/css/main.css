@@ -817,7 +817,158 @@ padding-left: 0px;
   .clients .swiper-pagination .swiper-pagination-bullet-active {
     background-color: var(--color-primary);
   }
-  
+  /*--------------------   Organigrame amical         ------------------*/
+
+
+                    body{
+  background-color:red;
+}
+                    .Oneguy
+{
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  height:85px;
+  width: 255px;
+
+
+}
+
+.Oneguy_avatar
+{
+  background-color:white;
+  width:75px;height:75px;
+  padding:5px;
+  box-shadow:0 0 1px black;
+  float:left
+
+}
+
+.Oneguy_presentation
+{
+  text-align:relative;
+  width: 150px;
+  float:left;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+
+/*
+  Organigramme du conseil
+*/
+#council_test
+{
+          position:  relative;
+          width: 700px;
+          height: 600px;
+          background:#F5F5DC	;
+          pading:10px;
+                     margin:10px;
+                     inline:center;
+}
+
+#council_president{
+  position:center;
+  left:213px;
+  margin:0;
+  z-index: 1000;
+}
+
+#council_vice-president{
+  position:absolute;
+  left:213px;
+  top: 125px;
+  margin:0;
+}
+
+#council_treasurer{
+  position: absolute;
+  top:275px;
+  z-index:500;
+
+}
+#council_vice-treasurer{
+  position: absolute;
+  top:400px;
+
+}
+
+#council_treasurer:before{
+  position: absolute;
+  background: none;
+  content:" ";
+  height:200px;
+  width:200px;
+  top:-202px;
+  left: 125px;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-radius: 20px 0 0 0;
+}
+
+#council_secretary{
+  position: absolute;
+  right:0;
+  top:275px;
+  z-index: 500;
+}
+
+
+#council_vice-secretary{
+  position: absolute;
+  right:0;
+  top:400px;
+}
+
+
+#council_secretary:before{
+  position: absolute;
+  background: none;
+  content:" ";
+  height:200px;
+  width:200px;
+  top:-202px;
+  right: 125px;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-radius: 0 20px 0 0;
+}
+
+#council_vice-secretary:before
+{
+  content:"";
+  position:absolute;
+  height:50px;
+  width:0;
+  border-right:2px solid black;
+  top: -50px;
+  right: 125px;
+}
+
+ #council_vice-treasurer:before
+{
+  content:"";
+  position:absolute;
+  height:50px;
+  width:0;
+  border-right:2px solid black;
+  top: -50px;
+  left: 125px;
+}
+
+#council_vice-president:before
+{
+  content:"";
+  position:absolute;
+  height:50px;
+  width:0;
+  border-right:2px solid black;
+  top: -50px;
+  right: 50%;
+}
   /*--------------------------------------------------------------
   # Stats Counter Section
   --------------------------------------------------------------*/
