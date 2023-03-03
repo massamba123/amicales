@@ -1,0 +1,50 @@
+<odoo>
+    <template id="membre_template" name="Membre Template" >
+        <t t-call="amicales.header"/>
+        <xpath expr="." position="inside">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Etudiant</h1>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Prénom</th>
+                                <th>Nom</th>
+                                <th>Âge</th>
+                                <th>Téléphone</th>
+                                <th>Adresse</th>
+                                <th>Département</th>
+                                <th>Niveau</th>
+                                <th>Promotion</th>
+                                <th>Matricule</th>
+                                <th>Role</th>
+                                <th>Commission</th>
+                                <th>Amicale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="membres" t-as="membre">
+                                <tr>
+                                    <td><t t-esc="membre.prenom"/></td>
+                                    <td><t t-esc="membret.nom"/></td>
+                                    <td><t t-esc="membre.age"/></td>
+                                    <td><t t-esc="membre.telephone"/></td>
+                                    <td><t t-esc="membre.adresse"/></td>
+                                     <td><t t-esc="etudiant.adresse"/></td>
+                                    <td><t t-esc="etudiant.departement_id.nomDepartement"/></td>
+                                    <td><t t-esc="etudiant.niveau_id.niveau"/></td>
+                                    <td><t t-esc="etudiant.promotion_id.promotion"/></td>
+                                    <td><t t-esc="membre.matricule"/></td>
+                                    <td><t t-esc="membre.role"/></td>
+                                    <td><t t-esc="membre.commission_id.nomCommission"/></td>
+                                    <td><t t-esc="membre.amicale_id.nomAmicale"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+        <t t-call="amicales.footer"/>
+    </template>
+</odoo>

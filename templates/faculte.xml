@@ -1,0 +1,31 @@
+<odoo>
+    <template id="faculte_template" name="faculte Template" >
+        <t t-call="amicales.header"/>
+        <xpath expr="." position="inside">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Faculte</h1>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nom Faculte</th>
+                                <th>Universite</th>
+                                <th>Departement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="facultes" t-as="faculte">
+                                <tr>
+                                    <td><t t-esc="faculte.nomUniversite"/></td>
+                                    <td><t t-esc="faculte.universite_id.nomUniversite"/></td>
+                                    <td><t t-esc="faculte.departement_id.nomDepartement"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+        <t t-call="amicales.footer"/>
+    </template>
+</odoo>

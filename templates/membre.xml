@@ -1,39 +1,31 @@
 <odoo>
-    <template id="amicales.membre">
-        
-         <t t-call="amicales.header"/>
+    <data>
 
-        <div class="panel panel-default">
-     <div class="o_list_view_top_buttons">
-      <button class="btn btn-primary o_list_button_add" type="button" t-on-click="addRecord()">Ajouter</button>
-    </div>
-     <div class="panel-heading">Devenir membre</div>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Matricule</th>
-          <th>Role</th>
-          <th>Commission_id</th>
-          <th>Amicale_id</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <t t-foreach="records" t-as="record">
-          <tr>
-            <td><a t-attf-href="#id={{record.id}}&amp;model=mon_module.employee">{{record.name}}</a></td>
-            <td>{{record.matricule}}</td>
-            <td>{{record.role}}</td>
-            <td>{{record.commission_id}}</td>
-              <td>{{record.amicale_id}}</td>
-
-          </tr>
-        </t>
-      </tbody>
-    </table>
-        </div>
-
-          <t t-call="amicales.footer"/>
-
-    </template>
+        <template id="amicale_members_template" name="Amicale Members">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>matricule</th>
+                        <th>Commission</th>
+                        <th>Amical</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for member in members %}
+                        <tr>
+                            <td>{{ member.role }}</td>
+                            <td>{{ member.maticule }}</td>
+                            <td>{{ member.commission_id.nomCommission }}</td>
+                            <td>{{ member.amicale_id.nomAmicale }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <t t-call="amicales.footer"/>
+        </template>
+    </data>
 </odoo>
+
+
+
