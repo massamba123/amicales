@@ -1,7 +1,7 @@
 <odoo>
-    <template id="createetudiant">
+    <template id="createmembre">
              <t t-call="amicales.header"/>
-            <form action="/createE" method="post">
+            <form action="/createM" method="post">
                 <div class="my-custom-class">
                     <group>
                         <group>
@@ -17,6 +17,18 @@
                         <group>
                             <label for="adresse">Adresse:</label>
                             <input type="text" name="adresse" id="adresse" required="true"/>
+                            <label for="matricule">Matricule:</label>
+                            <input type="text" name="matricule" id="matricule" required="true"/>
+                            <label for="role">Role:</label>
+                             <select id="role" name="role">
+                                <option value="Simple etudiant" t-att-selected="role == 'Simple etudiant'" t-att-value="'Simple etudiant'" default="Simple etudiant">Simple etudiant</option>
+                                <option value="President" t-att-selected="role == 'President'" t-att-value="'President'">President</option>
+                                <option value="Vice president" t-att-selected="role == 'Vice president'" t-att-value="'Vice president'">Vice president</option>
+                                <option value="Secretaire" t-att-selected="role == 'Secretaire'" t-att-value="'Secretaire'">Secretaire</option>
+                                <option value="Secretiare Adjoint" t-att-selected="role == 'Secretiare Adjoint'" t-att-value="'Secretiare Adjoint'">Secretiare Adjoint</option>
+                                <option value="Tresorier" t-att-selected="role == 'Tresorier'" t-att-value="'Tresorier'">Tresorier</option>
+                                <option value="Tresorier Adjoint" t-att-selected="role == 'Tresorier Adjoint'" t-att-value="'Tresorier Adjoint'">Tresorier Adjoint</option>
+                             </select>
                             <label for="departement_id">Département:</label>
                             <select name="departement_id" id="departement_id" required="true">
                                 <t t-foreach="departements" t-as="dept">
@@ -33,6 +45,18 @@
                             <select name="promotion_id" id="promotion_id" required="true">
                                 <t t-foreach="promotions" t-as="promotion">
                                     <option t-att-value="promotion.id"><t t-esc="promotion.promotion"/></option>
+                                </t>
+                            </select>
+                             <label for="commission_id">Commission:</label>
+                            <select name="commission_id" id="commission_id" required="true">
+                                <t t-foreach="commissions" t-as="commission">
+                                    <option t-att-value="commission.id"><t t-esc="commission.nomCommission"/></option>
+                                </t>
+                            </select>
+                             <label for="amicale_id">Amicale:</label>
+                            <select name="amicale_id" id="amicale_id" required="true">
+                                <t t-foreach="amicales" t-as="amicale">
+                                    <option t-att-value="amicale.id"><t t-esc="amicale.nomAmicale"/></option>
                                 </t>
                             </select>
                         </group>

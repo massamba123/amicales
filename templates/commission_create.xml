@@ -1,5 +1,5 @@
 <odoo>
-    <template id="createetudiant">
+    <template id="createcommission">
              <t t-call="amicales.header"/>
             <form action="/createE" method="post">
                 <div class="my-custom-class">

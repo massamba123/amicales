@@ -101,3 +101,38 @@ class Controller(http.Controller):
             'niveaux': Niveau.search([]),
             'promotions': Promotion.search([]),
         })
+
+    @http.route('/createM', type='http', auth="public", website=True, csrf=False)
+    def create_etudiant(self, **post):
+        Membre = request.env['amicales.membre']
+        membre = Membre.create(post)
+        return request.redirect('/adherer')
+
+    @http.route('/formM', type='http', auth="public", website=True)
+    def membre_form(self, **kw):
+        Departement = request.env['amicales.departement']
+        Niveau = request.env['amicales.niveau']
+        Promotion = request.env['amicales.promotion']
+        Commission = request.env['amicales.commission']
+        Amicale = request.env['amicales.amicale']
+        return request.render('amicales.createmembre', {
+            'departements': Departement.search([]),
+            'niveaux': Niveau.search([]),
+            'promotions': Promotion.search([]),
+            'commissions': Commission.search([]),
+            'amicales': Amicale.search([]),
+        })
+
+    @http.route('/createU', type='http', auth="public", website=True, csrf=False)
+    def create_etudiant(self, **post):
+        Universite = request.env['amicales.universite']
+        universite = Universite.create(post)
+        return request.redirect('/universite')
+
+    @http.route('/formU', type='http', auth="public", website=True)
+    def membre_form(self, **kw):
+        faculte_ids = request.env['amicales.faculte']
+        return request.render('amicales.createuniversite', {
+
+            'faculte_ids': faculte_ids.search([]),
+        })
