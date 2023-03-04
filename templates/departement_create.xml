@@ -1,43 +1,23 @@
 <odoo>
     <template id="createdepartement">
              <t t-call="amicales.header"/>
-            <form action="/createE" method="post">
+            <form action="/createD" method="post">
                 <div class="my-custom-class">
                     <group>
                         <group>
-                            <label for="prenom">Prénom:</label>
-                            <input type="text" name="prenom" id="prenom" required="true"/>
-                            <label for="nom">Nom:</label>
-                            <input type="text" name="nom" id="nom" required="true"/>
-                            <label for="age">Âge:</label>
-                            <input type="number" name="age" id="age" required="true"/>
-                            <label for="telephone">Téléphone:</label>
-                            <input type="tel" name="telephone" id="telephone" required="true"/>
-                        </group>
-                        <group>
-                            <label for="adresse">Adresse:</label>
-                            <input type="text" name="adresse" id="adresse" required="true"/>
-                            <label for="departement_id">Département:</label>
-                            <select name="departement_id" id="departement_id" required="true">
-                                <t t-foreach="departements" t-as="dept">
-                                    <option t-att-value="dept.id"><t t-esc="dept.nomDepartement"/></option>
-                                </t>
-                            </select>
-                            <label for="niveau_id">Niveau:</label>
-                            <select name="niveau_id" id="niveau_id" required="true">
-                                <t t-foreach="niveaux" t-as="niveau">
-                                    <option t-att-value="niveau.id"><t t-esc="niveau.niveau"/></option>
-                                </t>
-                            </select>
-                            <label for="promotion_id">Promotion:</label>
-                            <select name="promotion_id" id="promotion_id" required="true">
-                                <t t-foreach="promotions" t-as="promotion">
-                                    <option t-att-value="promotion.id"><t t-esc="promotion.promotion"/></option>
+                            <label for="nomDepartement">Nom Departement:</label>
+                            <input type="text" name="nomDepartement" id="nomDepartement" required="true"/>
+                            <label for="faculte_id">Faculte:</label>
+                            <select name="faculte_id" id="faculte_id" required="true">
+                                <t t-foreach="facultes" t-as="faculte">
+                                    <option t-att-value="faculte.id"><t t-esc="faculte.nomFaculte"/></option>
                                 </t>
                             </select>
                         </group>
+                        <button type="submit">Enregistrer</button>
+
                     </group>
-                    <button type="submit">Enregistrer</button>
+
                 </div>
             </form>
          <t t-call="amicales.footer"/>

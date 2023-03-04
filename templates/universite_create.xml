@@ -10,17 +10,9 @@
                             <label for="adresse">Adresse:</label>
                             <input type="text" name="adresse" id="adresse" required="true"/>
                         </group>
-                        <group>
-                            <label for="faculte_ids">Faculté:</label>
-                                <select name="faculte_ids[]">
-                                    <t t-foreach="facultes" t-as="faculte">
-                                        <option t-att-value="faculte.id" t-att-selected="faculte.id in faculte_ids"><t t-esc="faculte.nomFaculte"/></option>
-                                    </t>
-                                </select>
-
-                        </group>
+                            <button type="submit">Enregistrer</button>
                     </group>
-                    <button type="submit">Enregistrer</button>
+
                 </div>
             </form>
          <t t-call="amicales.footer"/>

@@ -19,7 +19,6 @@
         'views/etudiant_views.xml',
         'views/membre_views.xml',
         'views/commission_views.xml',
-        'templates/membre.xml',
         'templates/membre_create.xml',
         'templates/membre_template_tree.xml',
         'templates/etudiant.xml',
@@ -43,10 +42,10 @@
         'templates/amicale.xml',
         'templates/a_propos.xml',
         'templates/fairedon.xml',
-        'templates/membre.xml',
         'templates/programme.xml',
         'templates/header.xml',
         'templates/footer.xml',
+        'templates/adherer.xml',
 
 
 

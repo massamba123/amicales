@@ -12,7 +12,7 @@
                                 <th>Date Promo</th>
                                 <th>Description</th>
                                 <th>Niveau</th>
-                                <th>Etudiants</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -22,7 +22,7 @@
                                     <td><t t-esc="promotion.datePromo"/></td>
                                     <td><t t-esc="promotion.description"/></td>
                                     <td><t t-esc="promotion.niveau_id.niveau"/></td>
-                                    <td><t t-esc="promotion.etudiant_ids"/></td>
+
 
                                 </tr>
                             </t>

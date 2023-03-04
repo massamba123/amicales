@@ -10,7 +10,7 @@
                             <tr>
                                 <th>Nom Departement</th>
                                 <th>Faculte</th>
-                                <th>Niveau</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -18,7 +18,7 @@
                                 <tr>
                                     <td><t t-esc="departement.nomDepartement"/></td>
                                     <td><t t-esc="departement.faculte_id.nomFaculte"/></td>
-                                    <td><t t-esc="departement.niveau_ids"/></td>
+
                                 </tr>
                             </t>
                         </tbody>

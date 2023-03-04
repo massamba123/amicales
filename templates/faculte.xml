@@ -10,7 +10,7 @@
                             <tr>
                                 <th>Nom Faculte</th>
                                 <th>Universite</th>
-                                <th>Departement</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -18,7 +18,7 @@
                                 <tr>
                                     <td><t t-esc="faculte.nomFaculte"/></td>
                                     <td><t t-esc="faculte.universite_id.nomUniversite"/></td>
-                                    <td><t t-esc="faculte.departement_ids"/></td>
+
                                 </tr>
                             </t>
                         </tbody>

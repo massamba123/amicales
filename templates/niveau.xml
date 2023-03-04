@@ -10,7 +10,7 @@
                             <tr>
                                 <th>Niveau</th>
                                 <th>Departement</th>
-                                <th>Promotion</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -18,7 +18,7 @@
                                 <tr>
                                     <td><t t-esc="niveau.niveau"/></td>
                                     <td><t t-esc="niveau.departement_id.nomDepartement"/></td>
-                                    <td><t t-esc="niveau.promotion_ids"/></td>
+
                                 </tr>
                             </t>
                         </tbody>
