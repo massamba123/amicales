@@ -4,7 +4,7 @@
         <xpath expr="." position="inside">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Etudiant</h1>
+                    <h1>Membres</h1>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -26,14 +26,13 @@
                             <t t-foreach="membres" t-as="membre">
                                 <tr>
                                     <td><t t-esc="membre.prenom"/></td>
-                                    <td><t t-esc="membret.nom"/></td>
+                                    <td><t t-esc="membre.nom"/></td>
                                     <td><t t-esc="membre.age"/></td>
                                     <td><t t-esc="membre.telephone"/></td>
                                     <td><t t-esc="membre.adresse"/></td>
-                                     <td><t t-esc="etudiant.adresse"/></td>
-                                    <td><t t-esc="etudiant.departement_id.nomDepartement"/></td>
-                                    <td><t t-esc="etudiant.niveau_id.niveau"/></td>
-                                    <td><t t-esc="etudiant.promotion_id.promotion"/></td>
+                                    <td><t t-esc="membre.departement_id.nomDepartement"/></td>
+                                    <td><t t-esc="membre.niveau_id.niveau"/></td>
+                                    <td><t t-esc="membre.promotion_id.promotion"/></td>
                                     <td><t t-esc="membre.matricule"/></td>
                                     <td><t t-esc="membre.role"/></td>
                                     <td><t t-esc="membre.commission_id.nomCommission"/></td>

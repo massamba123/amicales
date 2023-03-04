@@ -1,5 +1,5 @@
 <odoo>
-    <template id="faculte_template" name="faculte Template" >
+    <template id="amicale_template" name="amicale Template" >
         <t t-call="amicales.header"/>
         <xpath expr="." position="inside">
             <div class="row">
@@ -8,17 +8,17 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Nom Faculte</th>
-                                <th>Universite</th>
-                                <th>Departement</th>
+                                <th>Nom Amicale</th>
+                                <th>Membre</th>
+                                <th>Commission</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <t t-foreach="facultes" t-as="faculte">
+                            <t t-foreach="amicales" t-as="amicale">
                                 <tr>
-                                    <td><t t-esc="faculte.nomFaculte"/></td>
-                                    <td><t t-esc="faculte.universite_id.nomUniversite"/></td>
-                                    <td><t t-esc="faculte.departement_ids"/></td>
+                                    <td><t t-esc="amicale.nomAmicale"/></td>
+                                    <td><t t-esc="amicale.membre_ids"/></td>
+                                    <td><t t-esc="amicale.commision_ids"/></td>
                                 </tr>
                             </t>
                         </tbody>

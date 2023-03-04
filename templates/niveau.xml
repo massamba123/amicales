@@ -1,24 +1,24 @@
 <odoo>
-    <template id="faculte_template" name="faculte Template" >
+    <template id="niveau_template" name="niveau Template" >
         <t t-call="amicales.header"/>
         <xpath expr="." position="inside">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Faculte</h1>
+                    <h1>Etudiant</h1>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Nom Faculte</th>
-                                <th>Universite</th>
+                                <th>Niveau</th>
                                 <th>Departement</th>
+                                <th>Promotion</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <t t-foreach="facultes" t-as="faculte">
+                            <t t-foreach="niveaux" t-as="niveau">
                                 <tr>
-                                    <td><t t-esc="faculte.nomFaculte"/></td>
-                                    <td><t t-esc="faculte.universite_id.nomUniversite"/></td>
-                                    <td><t t-esc="faculte.departement_ids"/></td>
+                                    <td><t t-esc="niveau.niveau"/></td>
+                                    <td><t t-esc="niveau.departement_id.nomDepartement"/></td>
+                                    <td><t t-esc="niveau.promotion_ids"/></td>
                                 </tr>
                             </t>
                         </tbody>

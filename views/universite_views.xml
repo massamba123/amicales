@@ -35,7 +35,8 @@
               <group >
                 <field name="nomUniversite"/>
 
-                <field name="adresse"/>
+                  <field name="adresse"/>
+                  <field name="faculte_ids"/>
               </group>
             </group>
                </div>
@@ -52,7 +53,7 @@
         <tree>
           <field name="nomUniversite"/>
           <field name="adresse"/>
-          <field name="faculte_ids"></field>
+          <field name="faculte_ids"/>
         </tree>
       </field>
     </record>

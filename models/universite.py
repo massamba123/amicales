@@ -12,7 +12,7 @@ class Universite(models.Model):
         string='adresse',
     )
     
-    faculte_ids = fields.One2many('amicales.faculte.xml','universite_id',string='facultes',)
+    faculte_ids = fields.One2many('amicales.faculte','universite_id',string='facultes',)
     
     
     

@@ -8,7 +8,7 @@ class Departement(models.Model):
         string='nomDepartement',
     )
     
-    faculte_id = fields.Many2one("amicales.faculte.xml",string='faculte.xml')
+    faculte_id = fields.Many2one("amicales.faculte",string='faculte')
     niveau_ids = fields.One2many("amicales.niveau","departement_id",string='niveau')
     
     

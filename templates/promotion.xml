@@ -1,0 +1,36 @@
+<odoo>
+    <template id="promotion_template" name="promotion Template" >
+        <t t-call="amicales.header"/>
+        <xpath expr="." position="inside">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Etudiant</h1>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Promotion</th>
+                                <th>Date Promo</th>
+                                <th>Description</th>
+                                <th>Niveau</th>
+                                <th>Etudiants</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="promotions" t-as="promotion">
+                                <tr>
+                                    <td><t t-esc="promotion.promotion"/></td>
+                                    <td><t t-esc="promotion.datePromo"/></td>
+                                    <td><t t-esc="promotion.description"/></td>
+                                    <td><t t-esc="promotion.niveau_id.niveau"/></td>
+                                    <td><t t-esc="promotion.etudiant_ids"/></td>
+
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </xpath>
+        <t t-call="amicales.footer"/>
+    </template>
+</odoo>

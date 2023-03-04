@@ -37,6 +37,7 @@
 
                 <field name="description"/>
                 <field name="niveau_id"/>
+<!--                 <field name="etudiant_ids"/>-->
             </group>
            </group>
              </div>
@@ -51,10 +52,10 @@
       <field name="arch" type="xml">
         <tree>
           <field name="promotion"/>
-          <field name="datePromo"></field>
-          <field name="description"></field>
-          <field name="niveau_id"></field>
-          <field name="etudiant_ids"></field>
+          <field name="datePromo"/>
+          <field name="description"/>
+          <field name="niveau_id"/>
+          <field name="etudiant_ids"/>
         </tree>
       </field>
     </record>

@@ -32,6 +32,7 @@
              <group>
                 <field name="niveau"/>
                 <field name="departement_id"/>
+                   <field name="promotion_ids"></field>
             </group>
            </group>
              </div>

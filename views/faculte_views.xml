@@ -33,6 +33,7 @@
              <group>
                <field name="nomFaculte"/>
                <field name="universite_id"></field>
+                 <field name="departement_ids"/>
              </group>
             </group>
              </div>

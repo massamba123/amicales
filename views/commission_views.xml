@@ -33,6 +33,8 @@
               <group>
                 <field name="nomCommission"/>
                 <field name="amicale_id"/>
+                  <field name="membre_ids"></field>
+
               </group>
             </group>
                </div>
