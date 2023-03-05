@@ -1,17 +1,21 @@
 <odoo>
     <template id="promotion_template" name="promotion Template" >
         <t t-call="amicales.header"/>
-        <xpath expr="." position="inside">
+         <xpath expr="." position="inside">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"/>
+        </xpath>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Etudiant</h1>
-                    <table class="table table-bordered">
+                    <h1>Universite</h1>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>Promotion</th>
                                 <th>Date Promo</th>
                                 <th>Description</th>
                                 <th>Niveau</th>
+                                <th>Action</th>
 
                             </tr>
                         </thead>
@@ -22,15 +26,17 @@
                                     <td><t t-esc="promotion.datePromo"/></td>
                                     <td><t t-esc="promotion.description"/></td>
                                     <td><t t-esc="promotion.niveau_id.niveau"/></td>
-
-
+                                    <td>
+                                        <a class="btn btn-primary" t-att-href="'/promotion/' + str(promotion.id)">Modifier</a>
+                                        <a class="btn btn-danger" t-att-href="'/promotion/supprimer/' + str(promotion.id)">Supprimer</a>
+                                    </td>
                                 </tr>
                             </t>
                         </tbody>
                     </table>
                 </div>
             </div>
-        </xpath>
+            </div>
         <t t-call="amicales.footer"/>
     </template>
 </odoo>

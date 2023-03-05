@@ -1,0 +1,89 @@
+<odoo>
+    <template id="modifiermembre" name="Membre Modifier">
+        <t t-call="amicales.header"/>
+
+        <xpath expr="." position="inside">
+             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+              <link rel="stylesheet" href="amicales/static/src/css/form.css"/>
+        </xpath>
+        <form action="/modifierM" method="post">
+            <div class="container">
+                <input type="hidden" name="membre_id" t-att-value="membre.id"/>
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" name="prenom" t-att-value="membre.prenom"/>
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" name="nom" t-att-value="membre.nom"/>
+                </div>
+                <div class="form-group">
+                    <label for="age">Âge</label>
+                    <input type="number" class="form-control" id="age" name="age" t-att-value="membre.age"/>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="text" class="form-control" id="telephone" name="telephone" t-att-value="membre.telephone"/>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" class="form-control" id="adresse" name="adresse" t-att-value="membre.adresse"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="departement">Département</label>
+                    <select class="form-control" id="departement" name="departement_id">
+                        <t t-foreach="departements" t-as="departement">
+                            <option t-att-value="departement.id" t-att-selected="departement.id == membre.departement_id.id"><t t-esc="departement.nomDepartement"/></option>
+                        </t>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="niveau">Niveau</label>
+                    <select class="form-control" id="niveau" name="niveau_id">
+                        <t t-foreach="niveaux" t-as="niveau">
+                            <option t-att-value="niveau.id" t-att-selected="niveau.id == membre.niveau_id.id"><t t-esc="niveau.niveau"/></option>
+                        </t>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="matricule">Matricule</label>
+                    <input type="text" class="form-control" id="matricule" name="matricule" t-att-value="membre.matricule"/>
+                </div>
+                 <div class="form-group">
+                    <label for="role">role</label>
+                     <select class="form-control" id="role" name="role">
+                                <option value="Simple etudiant" t-att-selected="role == 'Simple etudiant'" t-att-value="'Simple etudiant'" default="Simple etudiant">Simple etudiant</option>
+                                <option value="President" t-att-selected="role == 'President'" t-att-value="'President'">President</option>
+                                <option value="Vice president" t-att-selected="role == 'Vice president'" t-att-value="'Vice president'">Vice president</option>
+                                <option value="Secretaire" t-att-selected="role == 'Secretaire'" t-att-value="'Secretaire'">Secretaire</option>
+                                <option value="Secretiare Adjoint" t-att-selected="role == 'Secretiare Adjoint'" t-att-value="'Secretiare Adjoint'">Secretiare Adjoint</option>
+                                <option value="Tresorier" t-att-selected="role == 'Tresorier'" t-att-value="'Tresorier'">Tresorier</option>
+                                <option value="Tresorier Adjoint" t-att-selected="role == 'Tresorier Adjoint'" t-att-value="'Tresorier Adjoint'">Tresorier Adjoint</option>
+                             </select>
+                </div>
+                <div class="form-group">
+                    <label for="commission">Commission</label>
+                    <select class="form-control" id="commission" name="commission_id">
+                        <t t-foreach="commissions" t-as="commission">
+                            <option t-att-value="commission.id" t-att-selected="commission.id == membre.commission_id.id"><t t-esc="commission.nomCommission"/></option>
+                        </t>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="amicale">Niveau</label>
+                    <select class="form-control" id="amicale" name="amicale_id">
+                        <t t-foreach="amicales" t-as="amicale">
+                            <option t-att-value="amicale.id" t-att-selected="amicale.id == membre.amicale_id.id"><t t-esc="amicale,nomAmical"/></option>
+                        </t>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Modifier</button>
+            </div>
+        </form>
+        <xpath expr="." position="inside">
+             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </xpath>
+        <t t-call="amicales.footer"/>
+    </template>
+</odoo>

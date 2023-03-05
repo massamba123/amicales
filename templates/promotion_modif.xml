@@ -1,24 +1,31 @@
 <odoo>
-    <template id="modifierniveau" name="Etudiant Modifier">
+    <template id="modifierpromotion" name="Etudiant Modifier">
         <t t-call="amicales.header"/>
-
         <xpath expr="." position="inside">
              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
               <link rel="stylesheet" href="amicales/static/src/css/form.css"/>
         </xpath>
-        <form action="/modifierN" method="post">
+        <form action="/modifierP" method="post">
             <div class="container">
-                <input type="hidden" name="niveau_id" t-att-value="niveau.id"/>
+                <input type="hidden" name="promotion_id" t-att-value="promotion.id"/>
                 <div class="form-group">
-                    <label for="niveau">Niveau</label>
-                    <input type="text" class="form-control" id="niveau " name="niveau" t-att-value="niveau.niveau"/>
+                    <label for="promotion">Promotion</label>
+                    <input type="text" class="form-control" id="promotion " name="promotion" t-att-value="promotion.promotion"/>
                 </div>
                 <div class="form-group">
-                    <label for="departement">Departement</label>
-                    <select class="form-control" id="departement" name="departement_id">
-                        <t t-foreach="departements" t-as="departement">
-                            <option t-att-value="departement.id" t-att-selected="departement.id == niveau.departement_id.id">
-                                <t t-esc="departement.nomDepartement"/>
+                    <label for="datePromo">Date Promo</label>
+                    <input type="Date" class="form-control" id="datePromo " name="datePromo" t-att-value="promotion.datePromo"/>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" class="form-control" id="description" name="description" t-att-value="promotion.description"/>
+                </div>
+                <div class="form-group">
+                    <label for="niveau_id">Niveau</label>
+                    <select class="form-control" id="niveau" name="niveau_id">
+                        <t t-foreach="niveaux" t-as="niveau">
+                            <option t-att-value="niveau.id" t-att-selected="niveau.id == promotion.niveau_id.id">
+                                <t t-esc="niveau.niveau"/>
                             </option>
                         </t>
                     </select>

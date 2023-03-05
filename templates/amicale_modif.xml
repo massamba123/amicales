@@ -1,0 +1,25 @@
+<odoo>
+    <template id="modifieramicale" name="Etudiant Modifier">
+        <t t-call="amicales.header"/>
+        <xpath expr="." position="inside">
+             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+              <link rel="stylesheet" href="amicales/static/src/css/form.css"/>
+        </xpath>
+        <form action="/modifierA" method="post">
+            <div class="container">
+                <input type="hidden" name="amicale_id" t-att-value="amicale.id"/>
+                <div class="form-group">
+                    <label for="nomAmicale">Nom Amicale</label>
+                    <input type="text" class="form-control" id="nomAmicale" name="nomAmicale" t-att-value="amicale.nomAmicale"/>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Modifier</button>
+            </div>
+        </form>
+        <xpath expr="." position="inside">
+             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </xpath>
+        <t t-call="amicales.footer"/>
+    </template>
+</odoo>

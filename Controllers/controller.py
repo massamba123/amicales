@@ -386,3 +386,143 @@ class Controller(http.Controller):
 
         })
 
+    @http.route('/promotion/supprimer/<int:promotion_id>', type='http', auth='public', website=True)
+    def promotion_supprimer(self, promotion_id, **post):
+        Promotion = request.env['amicales.promotion']
+        promotion = Promotion.browse(promotion_id)
+        promotion.unlink()
+        return request.redirect('/promotion')
+
+    @http.route('/modifierP', type='http', auth='public', website=True, csrf=False)
+    def promotion_modifier(self, promotion_id=None, promotion=None,datePromo=None,description=None, niveau_id=None, **post):
+        Promotion = request.env['amicales.promotion']
+        promotiont = Promotion.browse(int(promotion_id))
+        promotiont.write({
+            'promotion': promotion,
+            'datePromo':datePromo,
+            'description':description,
+            'niveau_id': int(niveau_id),
+
+        })
+        return request.redirect('/promotion')
+
+    @http.route('/promotion/<int:promotion_id>', type='http', auth='public', website=True)
+    def promotion_afficher_modifier(self, promotion_id, **post):
+        Promotion = request.env['amicales.promotion']
+        promotion = Promotion.browse(promotion_id)
+        Niveau = request.env['amicales.niveau']
+        niveaux = Niveau.search([])
+        return request.render('amicales.modifierpromotion', {
+            'promotion':promotion,
+            'niveaux': niveaux,
+
+        })
+
+    @http.route('/amicale/supprimer/<int:amicale_id>', type='http', auth='public', website=True)
+    def amicale_supprimer(self, amicale_id, **post):
+        Amicale = request.env['amicales.amicale']
+        amicale = Amicale.browse(amicale_id)
+        amicale.unlink()
+        return request.redirect('/amicale_tree')
+
+    @http.route('/modifierA', type='http', auth='public', website=True, csrf=False)
+    def amicale_modifier(self, amicale_id=None, nomAmicale=None, **post):
+        Amicale = request.env['amicales.amicale']
+        amicale = Amicale.browse(int(amicale_id))
+        amicale.write({
+            'nomAmicale': nomAmicale,
+
+
+        })
+        return request.redirect('/amicale_tree')
+
+    @http.route('/amicale/<int:amicale_id>', type='http', auth='public', website=True)
+    def amicale_afficher_modifier(self, amicale_id, **post):
+        Amicale= request.env['amicales.amicale']
+        amicale = Amicale.browse(amicale_id)
+
+        return request.render('amicales.modifieramicale', {
+            'amicale': amicale,
+
+        })
+
+    @http.route('/commission/supprimer/<int:commission_id>', type='http', auth='public', website=True)
+    def commission_supprimer(self, commission_id, **post):
+        Commission = request.env['amicales.commission']
+        commission = Commission.browse(commission_id)
+        commission.unlink()
+        return request.redirect('/commission')
+
+    @http.route('/modifierC', type='http', auth='public', website=True, csrf=False)
+    def commission_modifier(self, commission_id=None, nomCommission=None,amicale_id=None, **post):
+        Commission= request.env['amicales.commission']
+        commission = Commission.browse(int(commission_id))
+        commission.write({
+            'nomCommission': nomCommission,
+            'amicale_id':amicale_id
+
+        })
+        return request.redirect('/commission')
+
+    @http.route('/commission/<int:commission_id>', type='http', auth='public', website=True)
+    def commission_afficher_modifier(self, commission_id, **post):
+        Commission = request.env['amicales.commission']
+        commission = Commission.browse(commission_id)
+        Amicale = request.env['amicales.amicale']
+        amicales = Amicale.search([])
+        return request.render('amicales.modifiercommission', {
+            'commission': commission,
+            'amicales':amicales,
+
+        })
+
+    @http.route('/membre/supprimer/<int:membre_id>', type='http', auth='public', website=True)
+    def membre_supprimer(self, membre_id, **post):
+        Membre = request.env['amicales.membre']
+        membre = Membre.browse(membre_id)
+        membre.unlink()
+        return request.redirect('/adherer')
+
+    @http.route('/modifierM', type='http', auth='public', website=True, csrf=False)
+    def membre_modifier(self, membre_id=None, prenom=None, nom=None, age=None, telephone=None, adresse=None,
+                          departement_id=None, niveau_id=None,matricule=None, role=None, commission_id=None, amicale_id=None, **post):
+        Membre = request.env['amicales.membre']
+        membre = Membre.browse(int(membre_id))
+        membre.write({
+            'prenom': prenom,
+            'nom': nom,
+            'age': int(age),
+            'telephone': telephone,
+            'adresse': adresse,
+            'departement_id': int(departement_id),
+            'niveau_id': int(niveau_id),
+            'role': role,
+            'matricule': matricule,
+            'commission_id': commission_id,
+            'amicale_id': amicale_id,
+
+        })
+        return request.redirect('/adherer')
+
+    @http.route('/membre/<int:membre_id>', type='http', auth='public', website=True)
+    def membre_afficher_modifier(self, membre_id, **post):
+        Membre = request.env['amicales.membre']
+        membre = Membre.browse(membre_id)
+        Departement = request.env['amicales.departement']
+        departements = Departement.search([])
+        Niveau = request.env['amicales.niveau']
+        niveaux = Niveau.search([])
+        Commission = request.env['amicales.commission']
+        commissions = Commission.search([])
+        Amicale = request.env['amicales.amicale']
+        amicales = Amicale.search([])
+
+        return request.render('amicales.modifiermembre',
+                              {'membre': membre,
+                               'departements': departements,
+                               'niveaux': niveaux,
+                               'commissions': commissions,
+                               'amicales': amicales,
+                               })
+
+

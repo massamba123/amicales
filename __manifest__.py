@@ -52,6 +52,9 @@
         'templates/departement_modif.xml',
         'templates/niveau_modif.xml',
         'templates/promotion_modif.xml',
+        'templates/amicale_modif.xml',
+        'templates/commission_modif.xml',
+        'templates/membre_modif.xml',
 
     ],
     'demo': [],
