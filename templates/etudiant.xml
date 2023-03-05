@@ -2,40 +2,48 @@
     <template id="etudiant_template" name="Etudiant Template" >
         <t t-call="amicales.header"/>
         <xpath expr="." position="inside">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"/>
+        </xpath>
             <div class="row">
                 <div class="col-md-12">
                     <h1>Etudiant</h1>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Prénom</th>
-                                <th>Nom</th>
-                                <th>Âge</th>
-                                <th>Téléphone</th>
-                                <th>Adresse</th>
-                                <th>Département</th>
-                                <th>Niveau</th>
-                                <th>Promotion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <t t-foreach="etudiants" t-as="etudiant">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered">
+                            <thead>
                                 <tr>
-                                    <td><t t-esc="etudiant.prenom"/></td>
-                                    <td><t t-esc="etudiant.nom"/></td>
-                                    <td><t t-esc="etudiant.age"/></td>
-                                    <td><t t-esc="etudiant.telephone"/></td>
-                                    <td><t t-esc="etudiant.adresse"/></td>
-                                    <td><t t-esc="etudiant.departement_id.nomDepartement"/></td>
-                                    <td><t t-esc="etudiant.niveau_id.niveau"/></td>
-                                    <td><t t-esc="etudiant.promotion_id.promotion"/></td>
+                                    <th>Prénom</th>
+                                    <th>Nom</th>
+                                    <th>Âge</th>
+                                    <th>Téléphone</th>
+                                    <th>Adresse</th>
+                                    <th>Département</th>
+                                    <th>Niveau</th>
+                                    <th>Promotion</th>
+                                    <th>Action</th>
                                 </tr>
-                            </t>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="etudiants" t-as="etudiant">
+                                    <tr>
+                                        <td><t t-esc="etudiant.prenom"/></td>
+                                        <td><t t-esc="etudiant.nom"/></td>
+                                        <td><t t-esc="etudiant.age"/></td>
+                                        <td><t t-esc="etudiant.telephone"/></td>
+                                        <td><t t-esc="etudiant.adresse"/></td>
+                                        <td><t t-esc="etudiant.departement_id.nomDepartement"/></td>
+                                        <td><t t-esc="etudiant.niveau_id.niveau"/></td>
+                                        <td><t t-esc="etudiant.promotion_id.promotion"/></td>
+                                       <td>
+                                            <a class="btn btn-primary" t-att-href="'/' + str(etudiant.id)">Modifier</a>
+                                            <a class="btn btn-danger" t-att-href="'/etudiant/supprimer/' + str(etudiant.id)">Supprimer</a>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </xpath>
         <t t-call="amicales.footer"/>
     </template>
 </odoo>

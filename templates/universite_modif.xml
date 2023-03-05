@@ -1,0 +1,29 @@
+<odoo>
+    <template id="modifieruniversite" name="Universite Modifier">
+        <t t-call="amicales.header"/>
+
+        <xpath expr="." position="inside">
+             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+              <link rel="stylesheet" href="amicales/static/src/css/form.css"/>
+        </xpath>
+        <form action="/modifierU" method="post">
+            <div class="container">
+                <input type="hidden" name="universite_id" t-att-value="universite.id"/>
+                <div class="form-group">
+                    <label for="nomUniversite">Nom Universite</label>
+                    <input type="text" class="form-control" id="nomUniversite" name="nomUniversite" t-att-value="universite.nomUniversite"/>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" class="form-control" id="adresse" name="adresse" t-att-value="universite.adresse"/>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Modifier</button>
+            </div>
+        </form>
+        <xpath expr="." position="inside">
+             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </xpath>
+        <t t-call="amicales.footer"/>
+    </template>
+</odoo>

@@ -237,3 +237,152 @@ class Controller(http.Controller):
 
 
         })
+
+    @http.route('/etudiant/supprimer/<int:etudiant_id>', type='http', auth='public', website=True)
+    def etudiant_supprimer(self, etudiant_id, **post):
+        Etudiant = request.env['amicales.etudiant']
+        etudiant = Etudiant.browse(etudiant_id)
+        etudiant.unlink()
+        return request.redirect('/etudiant')
+
+    @http.route('/modifierE', type='http', auth='public', website=True, csrf=False)
+    def etudiant_modifier(self, etudiant_id=None, prenom=None, nom=None, age=None, telephone=None, adresse=None,
+                          departement_id=None, niveau_id=None, **post):
+        Etudiant = request.env['amicales.etudiant']
+        etudiant = Etudiant.browse(int(etudiant_id))
+        etudiant.write({
+            'prenom': prenom,
+            'nom': nom,
+            'age': int(age),
+            'telephone': telephone,
+            'adresse': adresse,
+            'departement_id': int(departement_id),
+            'niveau_id': int(niveau_id)
+        })
+        return request.redirect('/etudiant')
+
+    @http.route('/<int:etudiant_id>', type='http', auth='public', website=True)
+    def etudiant_afficher_modifier(self, etudiant_id, **post):
+        Etudiant = request.env['amicales.etudiant']
+        etudiant = Etudiant.browse(etudiant_id)
+        Departement = request.env['amicales.departement']
+        departements = Departement.search([])
+        Niveau = request.env['amicales.niveau']
+        niveaux = Niveau.search([])
+        return request.render('amicales.modifieretudiant',
+                              {'etudiant': etudiant, 'departements': departements, 'niveaux': niveaux})
+
+    @http.route('/universite/supprimer/<int:universite_id>', type='http', auth='public', website=True)
+    def universite_supprimer(self, universite_id, **post):
+        Universite = request.env['amicales.universite']
+        universite = Universite.browse(universite_id)
+        universite.unlink()
+        return request.redirect('/universite')
+    @http.route('/modifierU', type='http', auth='public', website=True, csrf=False)
+    def universite_modifier(self, universite_id=None, nomUniversite=None, adresse=None, **post):
+        Universite = request.env['amicales.universite']
+        universite = Universite.browse(int(universite_id))
+        universite.write({
+            'nomUniversite': nomUniversite,
+            'adresse': adresse,
+        })
+        return request.redirect('/universite')
+
+    @http.route('/universite/<int:universite_id>', type='http', auth='public', website=True)
+    def universite_afficher_modifier(self, universite_id, **post):
+        Universite = request.env['amicales.universite']
+        universite = Universite.browse(universite_id)
+        return request.render('amicales.modifieruniversite', {
+            'universite': universite
+        })
+
+    @http.route('/faculte/supprimer/<int:faculte_id>', type='http', auth='public', website=True)
+    def faculte_supprimer(self, faculte_id, **post):
+        Faculte = request.env['amicales.faculte']
+        faculte = Faculte.browse(faculte_id)
+        faculte.unlink()
+        return request.redirect('/faculte')
+
+    @http.route('/modifierF', type='http', auth='public', website=True, csrf=False)
+    def faculte_modifier(self, faculte_id=None,nomFaculte=None, universite_id=None,  **post):
+        Faculte = request.env['amicales.faculte']
+        faculte = Faculte.browse(int(faculte_id))
+        faculte.write({
+            'nomFaculte': nomFaculte,
+            'universite_id':  int(universite_id),
+
+        })
+        return request.redirect('/faculte')
+
+    @http.route('/faculte/<int:faculte_id>', type='http', auth='public', website=True)
+    def faculte_afficher_modifier(self, faculte_id, **post):
+        Faculte = request.env['amicales.faculte']
+        faculte = Faculte.browse(faculte_id)
+        Universite = request.env['amicales.universite']
+        universites = Universite.search([])
+        return request.render('amicales.modifierfaculte', {
+            'faculte': faculte,
+            'universites': universites,
+
+        })
+    @http.route('/departement/supprimer/<int:departement_id>', type='http', auth='public', website=True)
+    def departement_supprimer(self, departement_id, **post):
+        Departement = request.env['amicales.departement']
+        departement = Departement.browse(departement_id)
+        departement.unlink()
+        return request.redirect('/departement')
+
+    @http.route('/modifierD', type='http', auth='public', website=True, csrf=False)
+    def departement_modifier(self, departement_id=None,nomDepartement=None, faculte_id=None,  **post):
+        Departement = request.env['amicales.departement']
+        departement = Departement.browse(int(departement_id))
+        departement.write({
+            'nomDepartement': nomDepartement,
+            'faculte_id': int(faculte_id),
+
+
+        })
+        return request.redirect('/departement')
+
+    @http.route('/departement/<int:departement_id>', type='http', auth='public', website=True)
+    def departement_afficher_modifier(self, departement_id, **post):
+        Departement = request.env['amicales.departement']
+        departement = Departement.browse(departement_id)
+        Faculte = request.env['amicales.faculte']
+        facultes = Faculte.search([])
+        return request.render('amicales.modifierdepartement', {
+            'departement': departement,
+            'facultes': facultes,
+
+        })
+
+    @http.route('/niveau/supprimer/<int:niveau_id>', type='http', auth='public', website=True)
+    def niveau_supprimer(self, niveau_id, **post):
+        Niveau = request.env['amicales.niveau']
+        niveau = Niveau.browse(niveau_id)
+        niveau.unlink()
+        return request.redirect('/niveau')
+
+    @http.route('/modifierN', type='http', auth='public', website=True, csrf=False)
+    def niveau_modifier(self, niveau_id=None, niveau=None, departement_id=None,  **post):
+        Niveau = request.env['amicales.niveau']
+        niveaut = Niveau.browse(int(niveau_id))
+        niveaut.write({
+            'niveau': niveau,
+            'departement_id': int(departement_id),
+
+        })
+        return request.redirect('/niveau')
+
+    @http.route('/niveau/<int:niveau_id>', type='http', auth='public', website=True)
+    def niveau_afficher_modifier(self, niveau_id, **post):
+        Niveau = request.env['amicales.niveau']
+        niveau = Niveau.browse(niveau_id)
+        Departement = request.env['amicales.departement']
+        departements = Departement.search([])
+        return request.render('amicales.modifierniveau', {
+            'niveau': niveau,
+            'departements': departements,
+
+        })
+

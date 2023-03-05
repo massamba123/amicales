@@ -67,3 +67,58 @@ button[type="submit"]:hover {
     border: 1px solid #ddd;
     border-top: none;
 }
+
+
+.nav-ul{
+display: flex;
+    padding: 1rem;
+}
+.nav-ul li{
+
+
+
+
+    border-radius: 5px;
+
+   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    text-align:center;
+}
+.nav-ul ul li a{
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding:10px;
+    margin:10px;
+
+    text-decoration: none;
+
+
+}
+/* Définir les styles de base pour la liste non ordonnée */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Définir les styles pour chaque élément de liste */
+li {
+  display: inline-block;
+}
+
+/* Définir les styles pour les liens */
+a {
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+   align-items: center;
+}
+
+/* Changer la couleur du lien lorsque la souris survole */
+a:hover {
+  background-color: #ccc;
+}

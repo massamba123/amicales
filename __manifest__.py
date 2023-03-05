@@ -46,9 +46,12 @@
         'templates/header.xml',
         'templates/footer.xml',
         'templates/adherer.xml',
-
-
-
+        'templates/etudiant_modif.xml',
+        'templates/universite_modif.xml',
+        'templates/faculte_modifi.xml',
+        'templates/departement_modif.xml',
+        'templates/niveau_modif.xml',
+        'templates/promotion_modif.xml',
 
     ],
     'demo': [],

@@ -1,0 +1,56 @@
+<odoo>
+    <template id="modifieretudiant" name="Etudiant Modifier">
+        <t t-call="amicales.header"/>
+
+        <xpath expr="." position="inside">
+             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+              <link rel="stylesheet" href="amicales/static/src/css/form.css"/>
+        </xpath>
+        <form action="/modifierE" method="post">
+            <div class="container">
+                <input type="hidden" name="etudiant_id" t-att-value="etudiant.id"/>
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" name="prenom" t-att-value="etudiant.prenom"/>
+                </div>
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" name="nom" t-att-value="etudiant.nom"/>
+                </div>
+                <div class="form-group">
+                    <label for="age">Âge</label>
+                    <input type="number" class="form-control" id="age" name="age" t-att-value="etudiant.age"/>
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="text" class="form-control" id="telephone" name="telephone" t-att-value="etudiant.telephone"/>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <input type="text" class="form-control" id="adresse" name="adresse" t-att-value="etudiant.adresse"/>
+                </div>
+                <div class="form-group">
+                    <label for="departement">Département</label>
+                    <select class="form-control" id="departement" name="departement_id">
+                        <t t-foreach="departements" t-as="departement">
+                            <option t-att-value="departement.id" t-att-selected="departement.id == etudiant.departement_id.id"><t t-esc="departement.nomDepartement"/></option>
+                        </t>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="niveau">Niveau</label>
+                    <select class="form-control" id="niveau" name="niveau_id">
+                        <t t-foreach="niveaux" t-as="niveau">
+                            <option t-att-value="niveau.id" t-att-selected="niveau.id == etudiant.niveau_id.id"><t t-esc="niveau.niveau"/></option>
+                        </t>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Modifier</button>
+            </div>
+        </form>
+        <xpath expr="." position="inside">
+             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </xpath>
+        <t t-call="amicales.footer"/>
+    </template>
+</odoo>

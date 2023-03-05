@@ -1,0 +1,35 @@
+<odoo>
+    <template id="modifierfaculte" name="Etudiant Modifier">
+        <t t-call="amicales.header"/>
+
+        <xpath expr="." position="inside">
+             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+              <link rel="stylesheet" href="amicales/static/src/css/form.css"/>
+        </xpath>
+        <form action="/modifierF" method="post">
+            <div class="container">
+                <input type="hidden" name="faculte_id" t-att-value="faculte.id"/>
+                <div class="form-group">
+                    <label for="nomFaculte ">Nom Faculte</label>
+                    <input type="text" class="form-control" id="nomFaculte " name="nomFaculte " t-att-value="faculte.nomFaculte "/>
+                </div>
+                <div class="form-group">
+                    <label for="universite">Universite</label>
+                    <select class="form-control" id="universite" name="universite_id">
+                        <t t-foreach="universites" t-as="universite">
+                            <option t-att-value="universite.id" t-att-selected="universite.id == faculte.universite_id.id">
+                                <t t-esc="universite.nomUniversite"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Modifier</button>
+            </div>
+        </form>
+        <xpath expr="." position="inside">
+             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </xpath>
+        <t t-call="amicales.footer"/>
+    </template>
+</odoo>
