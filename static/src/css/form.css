@@ -73,6 +73,7 @@ button[type="submit"]:hover {
 display: flex;
     padding: 1rem;
 }
+
 .nav-ul li{
 
 
@@ -121,4 +122,22 @@ a {
 /* Changer la couleur du lien lorsque la souris survole */
 a:hover {
   background-color: #ccc;
+}
+.nav-u2l{
+    padding: 0rem;
+}
+
+.nav-ul2 li{
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    text-align:center;
+}
+.nav-ul2 ul li a{
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding:2px;
+    margin:2px;
+     text-decoration: none;
 }

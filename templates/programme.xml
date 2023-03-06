@@ -2,7 +2,58 @@
     <template id="amicales.programme">
          <t t-call="amicales.header"/>
 
-        <p>Les programmes  de l'amical</p>
+        <section id="hero" class="d-flex align-items-center">
+
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                  <h1>Journée d'intégration des nouveaux bacheliers</h1>
+                  <h2>Guide, oriantation, dans tous les facultés, départements, BU,....</h2>
+                  <div><a href="/a_propos" class="btn-get-started scrollto">En savoir plus</a></div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 hero-img">
+                      <img src="amicales/static/src/assets/img/hero1.jpg" class="img-fluid" alt=""/>
+                 </div>
+              </div>
+            </div>
+
+        </section>
+       <section id="hero" class="d-flex align-items-center">
+
+            <div class="container">
+                <div class="row">
+
+                    <div  class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                      <img src="amicales/static/src/assets/img/hero2.jpg" class="img-fluid" alt=""/>
+                    </div>
+
+
+                <div  class="col-lg-6 order-1 order-lg-2 hero-img">
+                  <h1>8 Mars, Journée de la femme</h1>
+                  <h2> Nous organisons des activités pour témoigner notre gratitude envers les femmes.</h2>
+                   <div><a href="/a_propos" class="btn-get-started scrollto">En savoir plus</a></div>
+                </div>
+                </div>
+            </div>
+
+        </section>
+
+         <section id="hero" class="d-flex align-items-center">
+
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                  <h1> Ndoguou à l' ucad </h1>
+                  <h2>Nous préparons de somptueux repas pour vous aider à rompre le jeûne dans les meilleurs conditions possibles</h2>
+                  <div><a href="/a_propos" class="btn-get-started scrollto">En savoir plus</a></div>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 hero-img">
+                      <img src="amicales/static/src/assets/img/hero3.jpg" class="img-fluid" alt=""/>
+                 </div>
+              </div>
+            </div>
+
+        </section>
 
          <t t-call="amicales.footer"/>
 

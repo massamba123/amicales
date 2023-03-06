@@ -5,7 +5,7 @@
                 <div class="col-md-12">
                     <h1>Niveau</h1>
 
-                   <ul class="nav-tabs nav-justified">
+                   <ul class="nav nav-tab nav-justified">
                            <li class="active"><a  data-toggle="tab" href="#tab1-4" class="btn btn-success">Ajouter</a></li>
 
                     </ul>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             </div>
-         
+
 
     </template>
 </odoo>
