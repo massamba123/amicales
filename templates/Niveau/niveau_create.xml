@@ -1,6 +1,6 @@
 <odoo>
     <template id="createniveau">
-             <t t-call="amicales.header"/>
+
             <form action="/createN" method="post">
                 <div class="my-custom-class">
                     <group>
@@ -19,6 +19,6 @@
 
                 </div>
             </form>
-         <t t-call="amicales.footer"/>
+
     </template>
 </odoo>

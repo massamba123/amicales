@@ -1,6 +1,5 @@
 <odoo>
     <template id="createamicale">
-             <t t-call="./header"/>
             <form action="/createA" method="post">
                 <div class="my-custom-class">
                     <group>
@@ -14,6 +13,5 @@
 
                 </div>
             </form>
-         <t t-call="amicales.footer"/>
     </template>
 </odoo>

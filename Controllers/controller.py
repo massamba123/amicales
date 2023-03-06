@@ -265,7 +265,7 @@ class Controller(http.Controller):
         Universite = request.env['amicales.universite']
         universite = Universite.browse(universite_id)
         universite.unlink()
-        return request.redirect('/admin/')
+        return request.redirect('/admin')
     @http.route('/modifierU', type='http', auth='public', website=True, csrf=False)
     def universite_modifier(self, universite_id=None, nomUniversite=None, adresse=None, **post):
         Universite = request.env['amicales.universite']

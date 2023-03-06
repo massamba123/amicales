@@ -1,6 +1,6 @@
 <odoo>
     <template id="universite_template" name="universite Template" >
-        <div class="tab1">
+
 
             <div class="row">
                 <div class="col-md-12">
@@ -11,6 +11,9 @@
 
                     </ul>
                     <div id="tab1-1" class="tab-pane fade in active">
+                          <t t-call="amicales.createuniversite"/>
+                    </div>
+                    <div id="tab1-1-2" class="tab-pane fade in active">
                           <t t-call="amicales.createuniversite"/>
                     </div>
 
@@ -30,12 +33,16 @@
                                     <td><t t-esc="universite.nomUniversite"/></td>
                                     <td><t t-esc="universite.adresse"/></td>
                                     <td>
-                                    <a class="btn btn-primary"  t-att-href= "'/admin/' +str(universite.id)">Modifier</a>
-
-
-                                    <a data-toggle="tab" class="btn btn-danger" t-att-href="'/universite/supprimer/' + str(universite.id)">Supprimer</a>
+                                        <ul class="nav nav-tabs nav-justified">
+                                       <li>
+                                        <a class="btn btn-primary"  t-att-href= "'#tab1-1'+str(universite.id)">Modifier</a>
+                                         </li>
+                                            <a class="btn btn-danger" t-att-href="'/admin/' + str(universite.id)">Supprimer</a>
+                                     </ul>
 
                                     </td>
+
+
                                 </tr>
                             </t>
                         </tbody>
@@ -43,6 +50,6 @@
                 </div>
             </div>
             </div>
-</div>
+
     </template>
 </odoo>

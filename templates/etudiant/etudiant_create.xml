@@ -1,6 +1,6 @@
 <odoo>
     <template id="createetudiant">
-             <t t-call="amicales.header"/>
+
             <form action="/createE" method="post">
                 <div class="my-custom-class">
                     <group>
@@ -40,6 +40,6 @@
                     <button type="submit">Enregistrer</button>
                 </div>
             </form>
-         <t t-call="amicales.footer"/>
+
     </template>
 </odoo>

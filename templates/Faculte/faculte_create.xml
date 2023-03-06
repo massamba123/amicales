@@ -1,6 +1,6 @@
 <odoo>
     <template id="createfaculte">
-             <t t-call="amicales.header"/>
+
             <form action="/createF" method="post">
                 <div class="my-custom-class">
                     <group>
@@ -20,6 +20,6 @@
 
                 </div>
             </form>
-         <t t-call="amicales.footer"/>
+
     </template>
 </odoo>

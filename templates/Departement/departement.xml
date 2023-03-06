@@ -1,14 +1,14 @@
 <odoo>
     <template id="departement_template" name="departement Template" >
-        <div class="tab3">
+
             <div class="row">
                 <div class="col-md-12">
                     <h1>Departement</h1>
                     <ul class="nav nav-tabs nav-justified">
-                           <li class="active"><a  data-toggle="tab" href="#tab1-1" class="btn btn-success">Ajouter</a></li>
+                           <li class="active"><a  data-toggle="tab" href="#tab1-3" class="btn btn-success">Ajouter</a></li>
 
                     </ul>
-                    <div id="tab1-1" class="tab-pane fade in active">
+                    <div id="tab1-3" class="tab-pane fade in active">
                           <t t-call="amicales.createdepartement"/>
                     </div>
                     <table class="table table-striped table-bordered"/>
@@ -39,7 +39,6 @@
                 </div>
             </div>
             </div>
-         </div>
 
     </template>
 </odoo>
