@@ -34,15 +34,18 @@
                     <label for="departement">Département</label>
                     <select class="form-control" id="departement" name="departement_id">
                         <t t-foreach="departements" t-as="departement">
-                            <option t-att-value="departement.id" t-att-selected="departement.id == membre.departement_id.id"><t t-esc="departement.nomDepartement"/></option>
+                            <option t-att-value="departement.id" t-att-selected="departement.id == membre.departement_id.id">
+                                <t t-esc="departement.nomDepartement"/></option>
                         </t>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="niveau">Niveau</label>
+                    <label for="niveau_id">Niveau</label>
                     <select class="form-control" id="niveau" name="niveau_id">
                         <t t-foreach="niveaux" t-as="niveau">
-                            <option t-att-value="niveau.id" t-att-selected="niveau.id == membre.niveau_id.id"><t t-esc="niveau.niveau"/></option>
+                            <option t-att-value="niveau.id" t-att-selected="niveau.id == membre.niveau_id.id">
+                                <t t-esc="niveau.niveau"/>
+                            </option>
                         </t>
                     </select>
                 </div>
@@ -52,6 +55,7 @@
                 </div>
                  <div class="form-group">
                     <label for="role">role</label>
+
                      <select class="form-control" id="role" name="role">
                                 <option value="Simple etudiant" t-att-selected="role == 'Simple etudiant'" t-att-value="'Simple etudiant'" default="Simple etudiant">Simple etudiant</option>
                                 <option value="President" t-att-selected="role == 'President'" t-att-value="'President'">President</option>
@@ -71,10 +75,11 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="amicale">Niveau</label>
+                    <label for="amicale_id">Amicale</label>
                     <select class="form-control" id="amicale" name="amicale_id">
                         <t t-foreach="amicales" t-as="amicale">
-                            <option t-att-value="amicale.id" t-att-selected="amicale.id == membre.amicale_id.id"><t t-esc="amicale,nomAmical"/></option>
+                            <option t-att-value="amicale.id" t-att-selected="amicale.id == membre.amicale_id.id">
+                                <t t-esc="amicale.nomAmicale"/></option>
                         </t>
                     </select>
                 </div>

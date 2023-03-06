@@ -4,17 +4,17 @@ from werkzeug.utils import redirect
 
 class Controller(http.Controller):
 
-    @http.route('/',type='http', auth='public', website=True)
+    @http.route('/amicales',type='http', auth='public', website=True)
     def index(self, **kwargs):
         return request.render("amicales.index")
 
-    # @http.route('/', type='http', auth='public', website=True)
-    # def acceuil(self, **kwargs):
-    #     return redirect('/')
-
-    @http.route('/amicale', type='http', auth='public', website=True)
+    @http.route('/organigramme', type='http', auth='public', website=True)
     def amicale(self, **kwargs):
-        return request.render("amicales.amicale")
+        return request.render("amicales.organigramme")
+
+    @http.route('/login', type='http', auth='public', website=True)
+    def amicale(self, **kwargs):
+        return request.render("amicales.login")
 
     @http.route('/a_propos', type='http', auth='public', website=True)
     def a_propos(self, **kwargs):
@@ -23,13 +23,15 @@ class Controller(http.Controller):
     def fairedon(self, **kwargs):
         return request.render("amicales.fairedon")
 
-    @http.route('/membre', type='http', auth='public', website=True)
-    def membre(self, **kwargs):
-        return request.render("amicales.membre")
-
     @http.route('/programme', type='http', auth='public', website=True)
     def programme(self, **kwargs):
         return request.render("amicales.programme")
+
+    @http.route('/admin', type='http', auth='public', website=True)
+    def admin_page(self, **kwargs):
+        return http.request.render('amicales.gestion_amicale', {})
+
+
 
     @http.route('/etudiant', type='http', auth='public', website=True)
     def etudiant_page(self, **kwargs):
@@ -43,10 +45,7 @@ class Controller(http.Controller):
         membres = membre_obj.search([])
         return http.request.render('amicales.membre_template', {'membres': membres})
 
-    @http.route('/admin', type='http', auth='public', website=True)
-    def admin_page(self, **kwargs):
 
-        return http.request.render('amicales.template_admin', {})
 
     @http.route('/universite', type='http', auth='public', website=True)
     def universite_page(self, **kwargs):
@@ -90,18 +89,35 @@ class Controller(http.Controller):
         amicales = amicale_obj.search([])
         return http.request.render('amicales.amicale_template', {'amicales': amicales})
 
-    @http.route('/createE', type='http', auth="public", website=True, csrf=False)
+    @http.route('/etudiant/createE', type='http', auth="public", website=True, csrf=False)
     def create_etudiant(self, **post):
         Etudiant = request.env['amicales.etudiant']
         etudiant = Etudiant.create(post)
-        return request.redirect('/etudiant')
+        return request.redirect('amicales.etudiant_template')
 
-    @http.route('/formE', type='http', auth="public", website=True)
+    @http.route('/etudiant/formE', type='http', auth="public", website=True)
     def etudiant_form(self, **kw):
         Departement = request.env['amicales.departement']
         Niveau = request.env['amicales.niveau']
         Promotion = request.env['amicales.promotion']
         return request.render('amicales.createetudiant', {
+            'departements': Departement.search([]),
+            'niveaux': Niveau.search([]),
+            'promotions': Promotion.search([]),
+        })
+
+    @http.route('/createAd', type='http', auth="public", website=True, csrf=False)
+    def ad_etudiant(self, **post):
+        Etudiant = request.env['amicales.etudiant']
+        etudiant = Etudiant.create(post)
+        return request.redirect('/login')
+
+    @http.route('/formAd', type='http', auth="public", website=True)
+    def ad_form(self, **kw):
+        Departement = request.env['amicales.departement']
+        Niveau = request.env['amicales.niveau']
+        Promotion = request.env['amicales.promotion']
+        return request.render('amicales.createetudiantadherer', {
             'departements': Departement.search([]),
             'niveaux': Niveau.search([]),
             'promotions': Promotion.search([]),
@@ -485,7 +501,7 @@ class Controller(http.Controller):
 
     @http.route('/modifierM', type='http', auth='public', website=True, csrf=False)
     def membre_modifier(self, membre_id=None, prenom=None, nom=None, age=None, telephone=None, adresse=None,
-                          departement_id=None, niveau_id=None,matricule=None, role=None, commission_id=None, amicale_id=None, **post):
+                          departement_id=None, niveau_id=None, matricule=None, role=None, commission_id=None, amicale_id=None, **post):
         Membre = request.env['amicales.membre']
         membre = Membre.browse(int(membre_id))
         membre.write({

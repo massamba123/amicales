@@ -1,6 +1,6 @@
 
 <odoo>
-    <template id="amicales.amicale" name="Organigramme">
+    <template id="amicales.organigramme" name="Organigramme">
         <t t-call="amicales.header"/>
             <xpath expr="." position="inside">
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.orgchart/2.1.1/css/jquery.orgchart.min.css"/>

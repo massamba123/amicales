@@ -1,0 +1,64 @@
+<odoo>
+    <template id="gestion_amicale">
+              <t t-call="amicales.header"/>
+                <div class="custom-page">
+                    <div class="row">
+                    <div class="col-2">
+                    <div class="nav-ul">
+                    <ul class="nav nav-tabs nav-justified">
+                        <li class="active"><a data-toggle="tab" href="#tab1">Universites</a></li>
+                        <li><a data-toggle="tab" href="#tab2">Facultes</a></li>
+                        <li><a data-toggle="tab" href="#tab3">Depatements</a></li>
+                        <li><a data-toggle="tab" href="#tab4">Niveaux</a></li>
+                        <li><a data-toggle="tab" href="#tab5">Promissions</a></li>
+                        <li><a data-toggle="tab" href="#tab6">Etudiants</a></li>
+                        <li><a data-toggle="tab" href="#tab7">Amicales</a></li>
+                        <li><a data-toggle="tab" href="#tab8">Commissions</a></li>
+                        <li><a data-toggle="tab" href="#tab9">Membres</a></li>
+                    </ul>
+                    </div>
+                    </div>
+                    <div class="col-10">
+                    <div class="tab-content">
+
+                        <div id="tab1" class="tab-pane fade in active">
+
+                             <t t-call="amicales.etudiant_template"/>
+
+                        </div>
+                        <div id="tab2" class="tab-pane fade">
+
+                             <t t-call="amicales.etudiant_template"/>
+                        </div>
+                        <div id="tab3" class="tab-pane fade">
+
+                             <t t-call="amicales.etudiant_template"/>
+                        </div>
+                        <div id="tab4" class="tab-pane fade">
+
+                            <t t-call="amicales.etudiant_template"/>
+                        </div>
+                        <div id="tab5" class="tab-pane fade">
+                            <t t-call="amicales.etudiant_template"/>
+                        </div>
+                        <div id="tab6" class="tab-pane fade">
+                            <t t-call="amicales.etudiant_template"/>
+                        </div>
+                        <div id="tab7" class="tab-pane fade">
+                             <t t-call="amicales.etudiant_template"/>
+                        </div>
+                        <div id="tab8" class="tab-pane fade">
+                             <t t-call="amicales.etudiant_template"/>
+                        </div>
+                        <div id="tab9" class="tab-pane fade">
+                            <t t-call="amicales.etudiant_template"/>
+                         </div>
+                        </div>
+                    </div>
+                        </div>
+            </div>
+         <t t-call="amicales.footer"/>
+        </template>
+
+
+</odoo>

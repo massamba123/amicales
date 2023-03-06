@@ -1,5 +1,5 @@
 <odoo>
-    <template id="amicales.header">
+    <template id="header">
         <xpath expr="." position="inside">
             <link rel="stylesheet" href="amicales/static/src/css/main.css"/>
             <link rel="stylesheet" href="amicales/static/src/css/style.css"/>
@@ -22,13 +22,13 @@
 <nav id="navbar" class="navbar">
 
   <ul>
-    <li><a href="/">Accueil</a></li>
-    <li><a href="/amicale">Organigramme</a></li>
+    <li><a href="/amicales">Accueil</a></li>
+    <li><a href="/organigramme">Organigramme</a></li>
     <li><a href="/programme">Programme</a></li>
     <li><a href="/a_propos">A propos de nous</a></li>
-    <li><a href="/admin">devenir membre</a></li>
+    <li><a href="/admin">Gérer l'amicale</a></li>
     <li><a href="/fairedon">Faire un don</a></li>
-    <li><a href="#">Login</a></li>
+    <li><a href="/login">Login</a></li>
   </ul>
 </nav>
 </div>
