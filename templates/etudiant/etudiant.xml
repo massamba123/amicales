@@ -1,14 +1,17 @@
 <odoo>
     <template id="etudiant_template" name="Etudiant Template" >
-
-        <xpath expr="." position="inside">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"/>
-        </xpath>
+        <div class="tab6">
             <div class="row">
                 <div class="col-md-12">
-                  <p> <h1>Etudiant</h1>
-                    <a class="btn btn-success" t-att-href="'/etudiant/formE'">Ajouter</a>
-                </p>
+                   <h1>Etudiant</h1>
+
+<ul class="nav nav-tabs nav-justified">
+                           <li class="active"><a  data-toggle="tab" href="#tab1-1" class="btn btn-success">Ajouter</a></li>
+
+                    </ul>
+                    <div id="tab1-1" class="tab-pane fade in active">
+                          <t t-call="amicales.createetudiant"/>
+                    </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
                             <thead>
@@ -46,6 +49,6 @@
                     </div>
                 </div>
             </div>
-
+        </div>
     </template>
 </odoo>

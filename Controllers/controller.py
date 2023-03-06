@@ -27,75 +27,59 @@ class Controller(http.Controller):
     def programme(self, **kwargs):
         return request.render("amicales.programme")
 
-    @http.route('/admin', type='http', auth='public', website=True)
-    def admin_page(self, **kwargs):
-        return http.request.render('amicales.gestion_amicale', {})
-
-
-
-    @http.route('/etudiant', type='http', auth='public', website=True)
-    def etudiant_page(self, **kwargs):
+    @http.route('/admin', type='http', auth='public', website=True, csrf=False)
+    def admin_list_page(self, **kwargs):
         etudiant_obj = request.env['amicales.etudiant']
         etudiants = etudiant_obj.search([])
-        return http.request.render('amicales.etudiant_template', {'etudiants': etudiants})
-
-    @http.route('/adherer', type='http', auth='public', website=True)
-    def membre_page(self, **kwargs):
         membre_obj = request.env['amicales.membre']
         membres = membre_obj.search([])
-        return http.request.render('amicales.membre_template', {'membres': membres})
-
-
-
-    @http.route('/universite', type='http', auth='public', website=True)
-    def universite_page(self, **kwargs):
         universite_obj = request.env['amicales.universite']
         universites = universite_obj.search([])
-        return http.request.render('amicales.universite_template', {'universites': universites})
-
-    @http.route('/faculte', type='http', auth='public', website=True)
-    def faculte_page(self, **kwargs):
         faculte_obj = request.env['amicales.faculte']
         facultes = faculte_obj.search([])
-        return http.request.render('amicales.faculte_template', {'facultes': facultes})
-
-    @http.route('/departement', type='http', auth='public', website=True)
-    def departement_page(self, **kwargs):
         departement_obj = request.env['amicales.departement']
         departements = departement_obj.search([])
-        return http.request.render('amicales.departement_template', {'departements': departements})
-
-    @http.route('/promotion', type='http', auth='public', website=True)
-    def promotion_page(self, **kwargs):
         promotion_obj = request.env['amicales.promotion']
         promotions = promotion_obj.search([])
-        return http.request.render('amicales.promotion_template', {'promotions': promotions})
-
-    @http.route('/niveau', type='http', auth='public', website=True)
-    def niveau_page(self, **kwargs):
         niveau_obj = request.env['amicales.niveau']
         niveaux = niveau_obj.search([])
-        return http.request.render('amicales.niveau_template', {'niveaux': niveaux})
-
-    @http.route('/commission', type='http', auth='public', website=True)
-    def commission_page(self, **kwargs):
         commission_obj = request.env['amicales.commission']
         commissions = commission_obj.search([])
-        return http.request.render('amicales.commission_template', {'commissions': commissions})
-
-    @http.route('/amicale_tree', type='http', auth='public', website=True)
-    def amicale_page(self, **kwargs):
         amicale_obj = request.env['amicales.amicale']
         amicales = amicale_obj.search([])
-        return http.request.render('amicales.amicale_template', {'amicales': amicales})
 
-    @http.route('/etudiant/createE', type='http', auth="public", website=True, csrf=False)
+
+        return http.request.render('amicales.gestion_amicale', {
+            'etudiants': etudiants,
+            'membres': membres,
+            'universites': universites,
+            'facultes': facultes,
+            'departements': departements,
+            'promotions': promotions,
+            'niveaux': niveaux,
+            'commissions': commissions,
+            'amicales': amicales
+
+        })
+
+    @http.route('/createU', type='http', auth="public", website=True, csrf=False)
+    def create_universite(self, **post):
+        Universite = request.env['amicales.universite']
+        universite = Universite.create(post)
+        return request.redirect('/admin')
+
+    @http.route('/formU', type='http', auth="public", website=True)
+    def universite_form(self, **kw):
+
+        return request.render('amicales.createuniversite', {
+  })
+    @http.route('/createE', type='http', auth="public", website=True, csrf=False)
     def create_etudiant(self, **post):
         Etudiant = request.env['amicales.etudiant']
         etudiant = Etudiant.create(post)
-        return request.redirect('amicales.etudiant_template')
+        return request.redirect('/admin')
 
-    @http.route('/etudiant/formE', type='http', auth="public", website=True)
+    @http.route('/formE', type='http', auth="public", website=True)
     def etudiant_form(self, **kw):
         Departement = request.env['amicales.departement']
         Niveau = request.env['amicales.niveau']
@@ -127,7 +111,7 @@ class Controller(http.Controller):
     def create_membre(self, **post):
         Membre = request.env['amicales.membre']
         membre = Membre.create(post)
-        return request.redirect('/adherer')
+        return request.redirect('/admin')
 
     @http.route('/formM', type='http', auth="public", website=True)
     def membre_form(self, **kw):
@@ -144,25 +128,13 @@ class Controller(http.Controller):
             'amicales': Amicale.search([]),
         })
 
-    @http.route('/createU', type='http', auth="public", website=True, csrf=False)
-    def create_universite(self, **post):
-        Universite = request.env['amicales.universite']
-        universite = Universite.create(post)
-        return request.redirect('/universite')
 
-    @http.route('/formU', type='http', auth="public", website=True)
-    def universite_form(self, **kw):
-        Faculte = request.env['amicales.faculte']
-        return request.render('amicales.createuniversite', {
-
-            'facultes': Faculte.search([]),
-        })
 
     @http.route('/createF', type='http', auth="public", website=True, csrf=False)
     def create_faculte(self, **post):
         Faculte = request.env['amicales.faculte']
         faculte = Faculte.create(post)
-        return request.redirect('/faculte')
+        return request.redirect('/admin')
 
     @http.route('/formF', type='http', auth="public", website=True)
     def faculte_form(self, **kw):
@@ -178,7 +150,7 @@ class Controller(http.Controller):
     def create_departement(self, **post):
         Departement = request.env['amicales.departement']
         departement = Departement.create(post)
-        return request.redirect('/departement')
+        return request.redirect('/admin')
 
     @http.route('/formD', type='http', auth="public", website=True)
     def departement_form(self, **kw):
@@ -194,7 +166,7 @@ class Controller(http.Controller):
     def create_niveau(self, **post):
         Niveau = request.env['amicales.niveau']
         niveau = Niveau.create(post)
-        return request.redirect('/niveau')
+        return request.redirect('/admin')
 
     @http.route('/formN', type='http', auth="public", website=True)
     def niveau_form(self, **kw):
@@ -210,7 +182,7 @@ class Controller(http.Controller):
     def create_promotion(self, **post):
         Promotion = request.env['amicales.promotion']
         promotion = Promotion.create(post)
-        return request.redirect('/promotion')
+        return request.redirect('/admin')
 
     @http.route('/formP', type='http', auth="public", website=True)
     def promotion_form(self, **kw):
@@ -226,7 +198,7 @@ class Controller(http.Controller):
     def create_commission(self, **post):
         Commission = request.env['amicales.commission']
         commission = Commission.create(post)
-        return request.redirect('/commission')
+        return request.redirect('/admin')
 
     @http.route('/formC', type='http', auth="public", website=True)
     def commission_form(self, **kw):
@@ -242,7 +214,7 @@ class Controller(http.Controller):
     def create_commission(self, **post):
         Amicale = request.env['amicales.amicale']
         amicale = Amicale.create(post)
-        return request.redirect('/amicale_tree')
+        return request.redirect('/admin')
 
     @http.route('/formA', type='http', auth="public", website=True)
     def commission_form(self, **kw):
@@ -254,12 +226,12 @@ class Controller(http.Controller):
 
         })
 
-    @http.route('/etudiant/supprimer/<int:etudiant_id>', type='http', auth='public', website=True)
+    @http.route('/admin/<int:etudiant_id>', type='http', auth='public', website=True)
     def etudiant_supprimer(self, etudiant_id, **post):
         Etudiant = request.env['amicales.etudiant']
         etudiant = Etudiant.browse(etudiant_id)
         etudiant.unlink()
-        return request.redirect('/etudiant')
+        return request.redirect('/admin')
 
     @http.route('/modifierE', type='http', auth='public', website=True, csrf=False)
     def etudiant_modifier(self, etudiant_id=None, prenom=None, nom=None, age=None, telephone=None, adresse=None,
@@ -277,7 +249,7 @@ class Controller(http.Controller):
         })
         return request.redirect('/etudiant')
 
-    @http.route('/<int:etudiant_id>', type='http', auth='public', website=True)
+    @http.route('/etudiant/<int:etudiant_id>', type='http', auth='public', website=True)
     def etudiant_afficher_modifier(self, etudiant_id, **post):
         Etudiant = request.env['amicales.etudiant']
         etudiant = Etudiant.browse(etudiant_id)
@@ -288,12 +260,12 @@ class Controller(http.Controller):
         return request.render('amicales.modifieretudiant',
                               {'etudiant': etudiant, 'departements': departements, 'niveaux': niveaux})
 
-    @http.route('/universite/supprimer/<int:universite_id>', type='http', auth='public', website=True)
+    @http.route('/admin/<int:universite_id>', type='http', auth='public', website=True)
     def universite_supprimer(self, universite_id, **post):
         Universite = request.env['amicales.universite']
         universite = Universite.browse(universite_id)
         universite.unlink()
-        return request.redirect('/universite')
+        return request.redirect('/admin/')
     @http.route('/modifierU', type='http', auth='public', website=True, csrf=False)
     def universite_modifier(self, universite_id=None, nomUniversite=None, adresse=None, **post):
         Universite = request.env['amicales.universite']
