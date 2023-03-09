@@ -28,7 +28,7 @@
                                     <td><t t-esc="faculte.nomFaculte"/></td>
                                     <td><t t-esc="faculte.universite_id.nomUniversite"/></td>
                                      <td>
-                                            <a class="btn btn-primary" t-att-href="'/faculte/' + str(faculte.id)">Modifier</a>
+                                            <a class="btn btn-primary" t-att-href="'/faculte' + str(faculte.id)">Modifier</a>
                                             <a class="btn btn-danger" t-att-href="'/faculte/supprimer/' + str(faculte.id)">Supprimer</a>
                                      </td>
                                 </tr>

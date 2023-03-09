@@ -13,6 +13,10 @@
                             <input type="number" name="age" id="age" required="true"/>
                             <label for="telephone">Téléphone:</label>
                             <input type="tel" name="telephone" id="telephone" required="true"/>
+                            <label for="mail">Mail:</label>
+                            <input type="email" name="mail" id="mail" required="true"/>
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="password" required="true"/>
                         </group>
                         <group>
                             <label for="adresse">Adresse:</label>

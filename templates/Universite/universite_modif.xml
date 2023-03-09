@@ -24,6 +24,6 @@
         <xpath expr="." position="inside">
              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         </xpath>
-        <t t-call="amicales.footer"/>
+
     </template>
 </odoo>

@@ -28,7 +28,7 @@
 
                                     <td><t t-esc="commission.amicale_id.nomAmicale"/></td>
                                 <td>
-                                        <a class="btn btn-primary" t-att-href="'/commission/' + str(commission.id)">Modifier</a>
+                                        <a class="btn btn-primary" t-att-href="'/commission'+str(commission.id)">Modifier</a>
                                         <a class="btn btn-danger" t-att-href="'/commission/supprimer/' + str(commission.id)">Supprimer</a>
                                     </td>
                                 </tr>

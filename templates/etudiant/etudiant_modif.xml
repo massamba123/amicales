@@ -29,6 +29,10 @@
                     <label for="adresse">Adresse</label>
                     <input type="text" class="form-control" id="adresse" name="adresse" t-att-value="etudiant.adresse"/>
                 </div>
+                 <div class="form-group">
+                    <label for="mail">Mail</label>
+                    <input type="email" class="form-control" id="mail" name="mail" t-att-value="membre.mail"/>
+                </div>
                 <div class="form-group">
                     <label for="departement">Département</label>
                     <select class="form-control" id="departement" name="departement_id">
@@ -37,6 +41,7 @@
                         </t>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label for="niveau_id">Niveau</label>
                     <select class="form-control" id="niveau" name="niveau_id">
@@ -52,6 +57,6 @@
         <xpath expr="." position="inside">
              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         </xpath>
-        <t t-call="amicales.footer"/>
+
     </template>
 </odoo>

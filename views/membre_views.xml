@@ -40,8 +40,10 @@
                     <field name="nom"/>
                     <field name="telephone"/>
                     <field name="adresse"/>
+                     <field name="mail"/>
                     <field name="age"/>
                     <field name="matricule"/>
+                     <field name="role"/>
                 </group>
                 <group>
 
@@ -50,7 +52,8 @@
                     <field name="promotion_id"/>
                     <field name="commission_id"/>
                     <field name="amicale_id"/>
-                    <field name="role"/>
+                     <field name="role_id"></field>
+                    <field name="password"/>
                 </group>
                 </group>
                  </div>
@@ -69,6 +72,8 @@
           <field name="age"></field>
           <field name="telephone"></field>
           <field name="adresse"></field>
+            <field name="password"/>
+            <field name="mail"/>
           <field name="departement_id"></field>
           <field name="niveau_id"></field>
           <field name="promotion_id"></field>
@@ -76,6 +81,8 @@
           <field name="matricule"></field>
           <field name="amicale_id"></field>
           <field name="commission_id"></field>
+
+
 
         </tree>
       </field>

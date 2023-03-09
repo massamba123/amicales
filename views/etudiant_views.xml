@@ -37,7 +37,8 @@
                 <field name="age"/>
 
                 <field name="telephone"/>
-
+                   <field name="mail"/>
+                <field name="password"/>
               </group>
               <group>
                   <field name="adresse"/>
@@ -64,6 +65,8 @@
           <field name="age"/>
           <field name="telephone"/>
           <field name="adresse"/>
+             <field name="mail"/>
+              <field name="password"/>
           <field name="departement_id"/>
           <field name="niveau_id"/>
           <field name="promotion_id"/>

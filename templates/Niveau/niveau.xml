@@ -27,7 +27,7 @@
                                     <td><t t-esc="niveau.niveau"/></td>
                                     <td><t t-esc="niveau.departement_id.nomDepartement"/></td>
                                     <td>
-                                            <a class="btn btn-primary" t-att-href="'/niveau/' + str(niveau.id)">Modifier</a>
+                                            <a class="btn btn-primary" t-att-href="'/niveau'+str(niveau.id)">Modifier</a>
                                             <a class="btn btn-danger" t-att-href="'/niveau/supprimer/' + str(niveau.id)">Supprimer</a>
                                      </td>
 

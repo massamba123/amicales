@@ -28,7 +28,7 @@
                                 <tr>
                                     <td><t t-esc="amicale.nomAmicale"/></td>
                                     <td>
-                                        <a class="btn btn-primary" t-att-href="'/amicale/' + str(amicale.id)">Modifier</a>
+                                        <a class="btn btn-primary" t-att-href="'/amicale'+str(amicale.id)">Modifier</a>
                                         <a class="btn btn-danger" t-att-href="'/amicale/supprimer/' + str(amicale.id)">Supprimer</a>
                                     </td>
                                 </tr>

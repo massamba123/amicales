@@ -8,3 +8,5 @@ access_amicales_etudiant,amicales.etudiant,model_amicales_etudiant,,1,1,1,1
 access_amicales_membre,amicales.membre,model_amicales_membre,,1,1,1,1
 access_amicales_commission,amicales.commission,model_amicales_commission,,1,1,1,1
 access_amicales_amicale,amicales.amicale,model_amicales_amicale,,1,1,1,1
+access_amicales_groupe,amicales.groupe,model_amicales_groupe,,1,1,1,1
+access_amicales_role,amicales.role,model_amicales_role,,1,1,1,1

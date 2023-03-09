@@ -1,9 +1,25 @@
 from odoo import http
 from odoo.http import request
+from odoo.exceptions import AccessDenied
 from werkzeug.utils import redirect
 
 class Controller(http.Controller):
 
+    @http.route('/web/login', type='http', auth='public', csrf=False)
+    def custom_logins(self, **kw):
+        telephone = kw.get('login')
+        password = kw.get('password')
+        if telephone and password:
+            user = request.env['amicales.membre'].sudo().search([('telephone', '=', telephone)])
+            role1 = request.env['amicales.role'].sudo().search([('id', '=', 1)])
+            role2 = request.env['amicales.role'].sudo().search([('id', '=', 2)])
+            if user and user.check_password(password):
+                # request.session['admin'] = user.telephone
+                if user.role_id == role1:
+                    return request.redirect('/admin')
+                elif user.role_id == role2:
+                    return request.redirect("/amicales")
+            raise AccessDenied()
     @http.route('/amicales',type='http', auth='public', website=True)
     def index(self, **kwargs):
         return request.render("amicales.index")
@@ -14,7 +30,7 @@ class Controller(http.Controller):
 
     @http.route('/login', type='http', auth='public', website=True)
     def amicale(self, **kwargs):
-        return request.render("amicales.login")
+        return request.render("amicales.logindex")
 
     @http.route('/a_propos', type='http', auth='public', website=True)
     def a_propos(self, **kwargs):
@@ -28,7 +44,7 @@ class Controller(http.Controller):
         return request.render("amicales.programme")
 
     @http.route('/admin', type='http', auth='public', website=True, csrf=False)
-    def admin_list_page(self, **kwargs):
+    def Fadmin_list_page(self, **kwargs):
         etudiant_obj = request.env['amicales.etudiant']
         etudiants = etudiant_obj.search([])
         membre_obj = request.env['amicales.membre']
@@ -47,6 +63,8 @@ class Controller(http.Controller):
         commissions = commission_obj.search([])
         amicale_obj = request.env['amicales.amicale']
         amicales = amicale_obj.search([])
+        amicale_obj = request.env['amicales.role']
+        roles = amicale_obj.search([])
 
 
         return http.request.render('amicales.gestion_amicale', {
@@ -58,7 +76,9 @@ class Controller(http.Controller):
             'promotions': promotions,
             'niveaux': niveaux,
             'commissions': commissions,
-            'amicales': amicales
+            'amicales': amicales,
+            'roles':roles,
+
 
         })
 
@@ -92,24 +112,28 @@ class Controller(http.Controller):
     def create_etudiant(self, **post):
         Etudiant = request.env['amicales.etudiant']
         etudiant = Etudiant.create(post)
-        return request.redirect('/admin')
+        etudiant.confirme_mail()
+        return request.redirect('/amicales')
 
     @http.route('/formE', type='http', auth="public", website=True)
     def etudiant_form(self, **kw):
         Departement = request.env['amicales.departement']
         Niveau = request.env['amicales.niveau']
         Promotion = request.env['amicales.promotion']
+        Role = request.env['amicales.role']
         return request.render('amicales.createetudiant', {
             'departements': Departement.search([]),
             'niveaux': Niveau.search([]),
             'promotions': Promotion.search([]),
+            'roles': Role.search([]),
         })
 
     @http.route('/createAd', type='http', auth="public", website=True, csrf=False)
     def ad_etudiant(self, **post):
         Etudiant = request.env['amicales.etudiant']
         etudiant = Etudiant.create(post)
-        return request.redirect('/login')
+        etudiant.confirme_mail()
+        return request.redirect('/amicales')
 
     @http.route('/formAd', type='http', auth="public", website=True)
     def ad_form(self, **kw):
@@ -126,6 +150,7 @@ class Controller(http.Controller):
     def create_membre(self, **post):
         Membre = request.env['amicales.membre']
         membre = Membre.create(post)
+        membre.action_confirme_mail()
         return request.redirect('/admin')
 
     @http.route('/formM', type='http', auth="public", website=True)
@@ -135,12 +160,14 @@ class Controller(http.Controller):
         Promotion = request.env['amicales.promotion']
         Commission = request.env['amicales.commission']
         Amicale = request.env['amicales.amicale']
+        Role = request.env['amicales.role']
         return request.render('amicales.createmembre', {
             'departements': Departement.search([]),
             'niveaux': Niveau.search([]),
             'promotions': Promotion.search([]),
             'commissions': Commission.search([]),
             'amicales': Amicale.search([]),
+            'roles': Role.search([]),
         })
 
 
@@ -234,7 +261,7 @@ class Controller(http.Controller):
         return request.redirect('/admin')
 
     @http.route('/modifierE', type='http', auth='public', website=True, csrf=False)
-    def etudiant_modifier(self, etudiant_id=None, prenom=None, nom=None, age=None, telephone=None, adresse=None,
+    def etudiant_modifier(self, etudiant_id=None, prenom=None, nom=None, age=None,mail=None, telephone=None, adresse=None,
                           departement_id=None, niveau_id=None, **post):
         Etudiant = request.env['amicales.etudiant']
         etudiant = Etudiant.browse(int(etudiant_id))
@@ -242,14 +269,15 @@ class Controller(http.Controller):
             'prenom': prenom,
             'nom': nom,
             'age': int(age),
+            'mail':mail,
             'telephone': telephone,
             'adresse': adresse,
             'departement_id': int(departement_id),
             'niveau_id': int(niveau_id)
         })
-        return request.redirect('/etudiant')
+        return request.redirect('/admin')
 
-    @http.route('/etudiant/<int:etudiant_id>', type='http', auth='public', website=True)
+    @http.route('/etudiant<int:etudiant_id>', type='http', auth='public', website=True)
     def etudiant_afficher_modifier(self, etudiant_id, **post):
         Etudiant = request.env['amicales.etudiant']
         etudiant = Etudiant.browse(etudiant_id)
@@ -274,9 +302,9 @@ class Controller(http.Controller):
             'nomUniversite': nomUniversite,
             'adresse': adresse,
         })
-        return request.redirect('/universite')
+        return request.redirect('/admin')
 
-    @http.route('/universite/<int:universite_id>', type='http', auth='public', website=True)
+    @http.route('/universite<int:universite_id>', type='http', auth='public', website=True)
     def universite_afficher_modifier(self, universite_id, **post):
         Universite = request.env['amicales.universite']
         universite = Universite.browse(universite_id)
@@ -300,9 +328,9 @@ class Controller(http.Controller):
             'universite_id':  int(universite_id),
 
         })
-        return request.redirect('/faculte')
+        return request.redirect('/admin')
 
-    @http.route('/faculte/<int:faculte_id>', type='http', auth='public', website=True)
+    @http.route('/faculte<int:faculte_id>', type='http', auth='public', website=True)
     def faculte_afficher_modifier(self, faculte_id, **post):
         Faculte = request.env['amicales.faculte']
         faculte = Faculte.browse(faculte_id)
@@ -330,9 +358,9 @@ class Controller(http.Controller):
 
 
         })
-        return request.redirect('/departement')
+        return request.redirect('/admin')
 
-    @http.route('/departement/<int:departement_id>', type='http', auth='public', website=True)
+    @http.route('/departement<int:departement_id>', type='http', auth='public', website=True)
     def departement_afficher_modifier(self, departement_id, **post):
         Departement = request.env['amicales.departement']
         departement = Departement.browse(departement_id)
@@ -360,9 +388,9 @@ class Controller(http.Controller):
             'departement_id': int(departement_id),
 
         })
-        return request.redirect('/niveau')
+        return request.redirect('/admin')
 
-    @http.route('/niveau/<int:niveau_id>', type='http', auth='public', website=True)
+    @http.route('/niveau<int:niveau_id>', type='http', auth='public', website=True)
     def niveau_afficher_modifier(self, niveau_id, **post):
         Niveau = request.env['amicales.niveau']
         niveau = Niveau.browse(niveau_id)
@@ -392,9 +420,9 @@ class Controller(http.Controller):
             'niveau_id': int(niveau_id),
 
         })
-        return request.redirect('/promotion')
+        return request.redirect('/admin')
 
-    @http.route('/promotion/<int:promotion_id>', type='http', auth='public', website=True)
+    @http.route('/promotion<int:promotion_id>', type='http', auth='public', website=True)
     def promotion_afficher_modifier(self, promotion_id, **post):
         Promotion = request.env['amicales.promotion']
         promotion = Promotion.browse(promotion_id)
@@ -422,9 +450,9 @@ class Controller(http.Controller):
 
 
         })
-        return request.redirect('/amicale_tree')
+        return request.redirect('/admin')
 
-    @http.route('/amicale/<int:amicale_id>', type='http', auth='public', website=True)
+    @http.route('/amicale<int:amicale_id>', type='http', auth='public', website=True)
     def amicale_afficher_modifier(self, amicale_id, **post):
         Amicale= request.env['amicales.amicale']
         amicale = Amicale.browse(amicale_id)
@@ -450,9 +478,9 @@ class Controller(http.Controller):
             'amicale_id':amicale_id
 
         })
-        return request.redirect('/commission')
+        return request.redirect('/admin')
 
-    @http.route('/commission/<int:commission_id>', type='http', auth='public', website=True)
+    @http.route('/commission<int:commission_id>', type='http', auth='public', website=True)
     def commission_afficher_modifier(self, commission_id, **post):
         Commission = request.env['amicales.commission']
         commission = Commission.browse(commission_id)
@@ -473,7 +501,7 @@ class Controller(http.Controller):
 
     @http.route('/modifierM', type='http', auth='public', website=True, csrf=False)
     def membre_modifier(self, membre_id=None, prenom=None, nom=None, age=None, telephone=None, adresse=None,
-                          departement_id=None, niveau_id=None, matricule=None, role=None, commission_id=None, amicale_id=None, **post):
+                          departement_id=None, niveau_id=None, mail=None, matricule=None, role=None, commission_id=None, role_id=None,amicale_id=None, **post):
         Membre = request.env['amicales.membre']
         membre = Membre.browse(int(membre_id))
         membre.write({
@@ -482,17 +510,19 @@ class Controller(http.Controller):
             'age': int(age),
             'telephone': telephone,
             'adresse': adresse,
+            'mail':mail,
             'departement_id': int(departement_id),
             'niveau_id': int(niveau_id),
             'role': role,
+            'role_id': int(role_id),
             'matricule': matricule,
             'commission_id': commission_id,
             'amicale_id': amicale_id,
 
         })
-        return request.redirect('/adherer')
+        return request.redirect('/admin')
 
-    @http.route('/membre/<int:membre_id>', type='http', auth='public', website=True)
+    @http.route('/membre<int:membre_id>', type='http', auth='public', website=True)
     def membre_afficher_modifier(self, membre_id, **post):
         Membre = request.env['amicales.membre']
         membre = Membre.browse(membre_id)
@@ -504,6 +534,8 @@ class Controller(http.Controller):
         commissions = Commission.search([])
         Amicale = request.env['amicales.amicale']
         amicales = Amicale.search([])
+        Role = request.env['amicales.role']
+        roles = Role.search([])
 
         return request.render('amicales.modifiermembre',
                               {'membre': membre,
@@ -511,6 +543,7 @@ class Controller(http.Controller):
                                'niveaux': niveaux,
                                'commissions': commissions,
                                'amicales': amicales,
+                               'roles': roles,
                                })
 
 

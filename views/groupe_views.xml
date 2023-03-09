@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="amicales_groupe_action" model="ir.actions.act_window">
+    <field name="name">groupe</field>
+    <field name="res_model">amicales.groupe</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            Creer groupe
+        </p>
+    </field>
+</record>
+
+
+
+<record id="groupe_list_view" model="ir.ui.view">
+      <field name="name">amicales.groupe.list</field>
+      <field name="model">amicales.groupe</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nomGroupe"/>
+          <field name="role_id"></field>
+        </tree>
+      </field>
+    </record>
+<menuitem
+    id="menu_amicales_groupe"
+    name="groupe"
+    action="amicales_groupe_action"
+    parent="menu_amicales_root"
+    sequence="1"/>
+</odoo>

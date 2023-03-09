@@ -19,6 +19,7 @@
                                 <th>Nom</th>
                                 <th>Âge</th>
                                 <th>Téléphone</th>
+                                <th>Mail</th>
                                 <th>Adresse</th>
                                 <th>Département</th>
                                 <th>Niveau</th>
@@ -37,6 +38,7 @@
                                     <td><t t-esc="membre.nom"/></td>
                                     <td><t t-esc="membre.age"/></td>
                                     <td><t t-esc="membre.telephone"/></td>
+                                    <td><t t-esc="membre.mail"/></td>
                                     <td><t t-esc="membre.adresse"/></td>
                                     <td><t t-esc="membre.departement_id.nomDepartement"/></td>
                                     <td><t t-esc="membre.niveau_id.niveau"/></td>
@@ -46,7 +48,7 @@
                                     <td><t t-esc="membre.commission_id.nomCommission"/></td>
                                     <td><t t-esc="membre.amicale_id.nomAmicale"/></td>
                                   <td>
-                                        <a class="btn btn-primary" t-att-href="'/membre/' + str(membre.id)">Modifier</a>
+                                        <a class="btn btn-primary" t-att-href="'/membre'+str(membre.id)">Modifier</a>
                                         <a class="btn btn-danger" t-att-href="'/membre/supprimer/' + str(membre.id)">Supprimer</a>
                                     </td>
                                 </tr>

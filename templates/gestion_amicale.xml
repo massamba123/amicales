@@ -1,7 +1,7 @@
 <odoo>
 
     <template id="gestion_amicale">
-              <t t-call="amicales.header"/>
+              <t t-call="amicales.adminheader"/>
 
                 <div class="custom-page">
                     <div class="row">

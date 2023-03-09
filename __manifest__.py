@@ -8,9 +8,13 @@
     'summary': 'AmicaleKS',
     'description': "",
     'website': 'https://www.odoo.com/page/mescourse',
-    'depends': ['base'],
+    'depends': ['base','mail'],
     'data': [
         'security/ir.model.access.csv',
+        'data/mail_template.xml',
+        'data/adhesion.xml',
+        'views/groupe_views.xml',
+        'views/role_views.xml',
         'views/universite_views.xml',
         'views/faculte_views.xml',
         'views/departement_views.xml',
@@ -57,6 +61,7 @@
         'templates/gestion_amicale.xml',
         'templates/programme.xml',
         'templates/amicales/header.xml',
+        'templates/amicales/admin_header.xml',
         'templates/amicales/footer.xml',
 
 

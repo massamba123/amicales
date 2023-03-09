@@ -7,3 +7,5 @@ from . import etudiant
 from . import membre
 from . import commission
 from . import amicale
+from . import  role
+from . import  groupe

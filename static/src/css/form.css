@@ -1,25 +1,23 @@
-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-left:200px;
-    margin-right:200px;
-    width:900px;
-    margin-top:20px;
 
-
-}
 
 .my-custom-class {
-    display: flex;
-    flex-wrap: wrap;
+
     justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 1rem;
     background-color: #F5F5DC;
     border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left:100px;
+    margin-right:300px;
+    width:900px;
+    margin-top:20px;
+
+
 }
 
 label {
@@ -140,4 +138,22 @@ a:hover {
     padding:2px;
     margin:2px;
      text-decoration: none;
+}
+
+
+.my-custom-class2 {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    background-color: #F5F5DC;
+    border-radius: 5px;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+
 }

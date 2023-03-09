@@ -13,9 +13,16 @@
                             <input type="number" name="age" id="age" required="true"/>
                             <label for="telephone">Téléphone:</label>
                             <input type="tel" name="telephone" id="telephone" required="true"/>
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="password" required="true"/>
+
+
                         </group>
                         <group>
+                            <label for="mail">Mail:</label><br/>
+                            <input type="email" name="mail" id="mail" required="true"/>
                             <label for="adresse">Adresse:</label>
+
                             <input type="text" name="adresse" id="adresse" required="true"/>
                             <label for="departement_id">Département:</label>
                             <select name="departement_id" id="departement_id" required="true">
@@ -23,6 +30,7 @@
                                     <option t-att-value="dept.id"><t t-esc="dept.nomDepartement"/></option>
                                 </t>
                             </select>
+
                             <label for="niveau_id">Niveau:</label>
                             <select name="niveau_id" id="niveau_id" required="true">
                                 <t t-foreach="niveaux" t-as="niveau">

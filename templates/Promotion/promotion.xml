@@ -32,7 +32,7 @@
                                     <td><t t-esc="promotion.description"/></td>
                                     <td><t t-esc="promotion.niveau_id.niveau"/></td>
                                     <td>
-                                        <a class="btn btn-primary" t-att-href="'/promotion/' + str(promotion.id)">Modifier</a>
+                                        <a class="btn btn-primary" t-att-href="'/promotion' + str(promotion.id)">Modifier</a>
                                         <a class="btn btn-danger" t-att-href="'/promotion/supprimer/' + str(promotion.id)">Supprimer</a>
                                     </td>
                                 </tr>
